@@ -137,7 +137,7 @@
 <!-- ################################################################################################ -->
 <!-- ################################################################################################ -->
 <!-- ################################################################################################ -->
-<div class="wrapper bgded overlay" style="background-image:url('images/demo/backgrounds/01.png');">
+<div class="wrapper bgded overlay" style="background-image:url('../images/demo/backgrounds/01.png');">
   <section id="testimonials" class="hoc container clear"> 
     <!-- ################################################################################################ -->
     <div class="sectiontitle">

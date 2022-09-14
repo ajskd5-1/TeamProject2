@@ -39,12 +39,12 @@
       <div class="one_third">
         <h6 class="heading">Per inceptos himenaeos</h6>
         <ul class="nospace clear latestimg">
-          <li><a class="imgover" href="#"><img src="images/demo/100x100.png" alt=""></a></li>
-          <li><a class="imgover" href="#"><img src="images/demo/100x100.png" alt=""></a></li>
-          <li><a class="imgover" href="#"><img src="images/demo/100x100.png" alt=""></a></li>
-          <li><a class="imgover" href="#"><img src="images/demo/100x100.png" alt=""></a></li>
-          <li><a class="imgover" href="#"><img src="images/demo/100x100.png" alt=""></a></li>
-          <li><a class="imgover" href="#"><img src="images/demo/100x100.png" alt=""></a></li>
+          <li><a class="imgover" href="#"><img src="../images/demo/100x100.png" alt=""></a></li>
+          <li><a class="imgover" href="#"><img src="../images/demo/100x100.png" alt=""></a></li>
+          <li><a class="imgover" href="#"><img src="../images/demo/100x100.png" alt=""></a></li>
+          <li><a class="imgover" href="#"><img src="../images/demo/100x100.png" alt=""></a></li>
+          <li><a class="imgover" href="#"><img src="../images/demo/100x100.png" alt=""></a></li>
+          <li><a class="imgover" href="#"><img src="../images/demo/100x100.png" alt=""></a></li>
         </ul>
       </div>
     </div>

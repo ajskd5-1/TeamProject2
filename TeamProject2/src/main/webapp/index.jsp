@@ -10,6 +10,6 @@ location.href="main/main.do";
 </script>
 </head>
 <body>
-
+<%-- 이종환 --%>
 </body>
 </html>
