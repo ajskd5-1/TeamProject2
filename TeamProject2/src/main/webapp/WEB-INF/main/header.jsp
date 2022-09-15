@@ -7,13 +7,13 @@
 <title>Insert title here</title>
 </head>
 <body>
-<div class="bgded overlay" style="background-image:url('../images/demo/backgrounds/01.png');"> 
+<div class="bgded overlay" style="background-image:url('../images/demo/backgrounds/제주도배경4.jpg');"> 
   <!-- ################################################################################################ -->
   <div class="wrapper row1">
     <header id="header" class="hoc clear"> 
       <!-- ################################################################################################ -->
       <div id="logo" class="fl_left">
-        <h1><a href="main.do">Yeinydd</a></h1>
+        <h1><a href="main.do">제주도</a></h1>
       </div>
       <!-- ################################################################################################ -->
       <nav id="mainav" class="fl_right">
@@ -57,7 +57,7 @@
   <div id="pageintro" class="hoc clear"> 
     <!-- ################################################################################################ -->
     <article>
-      <h3 class="heading">Gravida ligula pulvinar</h3>
+      <h3 class="heading font_title">Gravida ligula pulvinar</h3>
       <p>Sem eu tincidunt magna nulla eu turpis mauris eget ante fusce pharetra sodales arcu sed rutrum ipsum a ipsum.</p>
       <footer>
         <form class="group" method="post" action="#">
