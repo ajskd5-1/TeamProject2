@@ -9,7 +9,7 @@
 location.href="main/main.do";
 </script>
 </head>
-<body>
+<body> 
 <%-- 이종환 --%>
 <%-- 김휘 --%>
 <%-- 박지원 d --%>
