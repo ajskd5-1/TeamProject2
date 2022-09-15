@@ -12,5 +12,6 @@ location.href="main/main.do";
 <body>
 <%-- 이종환 --%>
 <%-- 김휘 --%>
+<%-- 박지원 --%>
 </body>
 </html>
