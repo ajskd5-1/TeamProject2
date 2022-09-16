@@ -137,41 +137,6 @@
 <!-- ################################################################################################ -->
 <!-- ################################################################################################ -->
 <!-- ################################################################################################ -->
-<div class="wrapper bgded overlay" style="background-image:url('../images/demo/backgrounds/01.png');">
-  <section id="testimonials" class="hoc container clear"> 
-    <!-- ################################################################################################ -->
-    <div class="sectiontitle">
-      <h6 class="heading">Donec condimentum</h6>
-      <p>Adipiscing justo nulla mollis iaculis tortor in mauris integer</p>
-    </div>
-    <div class="group">
-      <article class="one_half first"><img src="../images/demo/80x80.png" alt="">
-        <blockquote>Pretium duis viverra malesuada mi proin iaculis mauris eu sodales cursus sapien erat pharetra justo vitae volutpat eros magna et magna mauris hendrerit pellentesque.</blockquote>
-        <h6 class="heading font-x1">A. Doe</h6>
-        <em>Et ipsum mattis ipsum</em></article>
-      <article class="one_half"><img src="../images/demo/80x80.png" alt="">
-        <blockquote>Pellentesque pretium proin molestie erat in rhoncus posuere nibh quam consectetuer lectus ac vulputate ligula lorem ut dolor duis tempus mauris nunc et ligula ut.</blockquote>
-        <h6 class="heading font-x1">B. Doe</h6>
-        <em>Tortor suscipit convallis</em></article>
-    </div>
-    <!-- ################################################################################################ -->
-  </section>
-</div>
-<!-- ################################################################################################ -->
-<!-- ################################################################################################ -->
-<!-- ################################################################################################ -->
-<div class="wrapper row3">
-  <article class="hoc cta clear"> 
-    <!-- ################################################################################################ -->
-    <h6 class="three_quarter first">Sed ullamcorper arcu eu ante ut sollicitudin sem sit amet</h6>
-    <footer class="one_quarter"><a class="btn" href="#">Ipsum fusce non pede</a></footer>
-    <!-- ################################################################################################ -->
-  </article>
-</div>
-
-<!-- ################################################################################################ -->
-<!-- ################################################################################################ -->
-<!-- ################################################################################################ -->
 <a id="backtotop" href="#top"><i class="fas fa-chevron-up"></i></a>
 
 </body>
