@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -13,7 +14,7 @@
     <header id="header" class="hoc clear"> 
       <!-- ################################################################################################ -->
       <div id="logo" class="fl_left">
-        <h1 class="font_title"><a href="main/main.do">제주도</a></h1>
+        <h1 class="font_title"><a href="../main/main.do">제주도</a></h1>
       </div>
       <!-- ################################################################################################ -->
       <nav id="mainav" class="fl_right">
@@ -36,7 +37,12 @@
           <li><a href="#">맛집</a></li>
           <li><a href="#">코스짜기</a></li>
           <li><a href="#">자유게시판</a></li>
-          <li><a href="#">로그인</a></li>
+          <c:if test="${sessionScope.id!=null }">
+        <li><a href="../member/logout.do">로그아웃</a></li>
+      </c:if>
+      <c:if test="${sessionScope.id==null }">
+        <li><a href="../member/login.do">로그인</a></li>
+      </c:if>
           <li><a href="#">회원가입</a></li>
         </ul>
       </nav>
