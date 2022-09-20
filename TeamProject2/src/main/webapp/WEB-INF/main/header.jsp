@@ -13,22 +13,12 @@
     <header id="header" class="hoc clear"> 
       <!-- ################################################################################################ -->
       <div id="logo" class="fl_left">
-        <h1><a href="main.do">제주도</a></h1>
+        <h1 class="font_title"><a href="main/main.do">제주도</a></h1>
       </div>
       <!-- ################################################################################################ -->
       <nav id="mainav" class="fl_right">
         <ul class="clear">
-          <li class="active"><a href="index.html">Home</a></li>
-          <li><a class="drop" href="#">Pages</a>
-            <ul>
-              <li><a href="../pages/gallery.html">Gallery</a></li>
-              <li><a href="../pages/full-width.html">Full Width</a></li>
-              <li><a href="../pages/sidebar-left.html">Sidebar Left</a></li>
-              <li><a href="../pages/sidebar-right.html">Sidebar Right</a></li>
-              <li><a href="../pages/basic-grid.html">Basic Grid</a></li>
-              <li><a href="../pages/font-icons.html">Font Icons</a></li>
-            </ul>
-          </li>
+          <li class="active"><a href="../main/main.do" class="font_title">Home</a></li>
           <li><a class="drop" href="#">Dropdown</a>
             <ul>
               <li><a href="#">Level 2</a></li>
@@ -42,10 +32,12 @@
               <li><a href="#">Level 2</a></li>
             </ul>
           </li>
-          <li><a href="#">Link Text</a></li>
-          <li><a href="#">Link Text</a></li>
-          <li><a href="#">Link Text</a></li>
-          <li><a href="#">Long Link Text</a></li>
+          <li><a href="#">관광지</a></li>
+          <li><a href="#">맛집</a></li>
+          <li><a href="#">코스짜기</a></li>
+          <li><a href="#">자유게시판</a></li>
+          <li><a href="#">로그인</a></li>
+          <li><a href="#">회원가입</a></li>
         </ul>
       </nav>
       <!-- ################################################################################################ -->
