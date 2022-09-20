@@ -32,7 +32,7 @@
               <li><a href="#">Level 2</a></li>
             </ul>
           </li>
-          <li><a href="#">관광지</a></li>
+          <li><a href="../location/location_list.do">관광지</a></li>
           <li><a href="#">맛집</a></li>
           <li><a href="#">코스짜기</a></li>
           <li><a href="#">자유게시판</a></li>
