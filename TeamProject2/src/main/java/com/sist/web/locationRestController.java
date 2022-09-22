@@ -59,5 +59,32 @@ public class locationRestController {
  	   result=arr.toJSONString();
  	   return result;
     }
+	
+	@GetMapping(value="location/location_detail.do",produces = "text/plain;charset=utf-8")
+    public String location_detail_vue(int no)
+    {
+    	String result="";
+    	try
+    	{
+    		Map map=new HashMap();
+    		map.put("no", no);
+    		
+    		LocationVO vo=Dao.LocationDetailData(map);
+    		
+    		JSONObject obj=new JSONObject();
+    		obj.put("no",vo.getNo());
+    		obj.put("title",vo.getTitle());
+    		obj.put("addr",vo.getAddr());
+    		obj.put("content",vo.getContent());
+    		obj.put("poster",vo.getPoster());
+    		
+    		result=obj.toJSONString();
+    		
+    	}catch(Exception ex) 
+    	{
+    		ex.printStackTrace();
+    	}
+    	return result;
+    }
 
 }

@@ -8,12 +8,27 @@
 <title>Insert title here</title>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 <style type="text/css">
-.container{
-   margin-top: 30px;
-}
 .row {
    margin: 0px auto;
    width:100%
+}
+.img{
+	position: relative;
+}
+#text_box{
+	padding: 5px 10px;
+	text-align: center;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate( -50%, -50% );
+}
+.col-md-4{
+	padding: 5px;
+}
+.caption{
+	margin-top: 10px;
+	text-align:center;
 }
 </style>
 <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.min.js"></script>
@@ -21,13 +36,19 @@
 </head>
 <body>
   <div class="container">
+   <div class="img"> 
+    <p> 
+   	   <img src="../resources/img/location2.jpg" style="width:100%; height:400px;">
+   	</p>
+       <h1 class="font_title" id="text_box" style="font-size:50px; color:#F3F3F3; font-weight: bold;">관광지</h1>
+   </div>
    <div id="location_list">
     <div style="height: 20px"></div>
     <div class="row" >
        <div class="col-md-4" v-for="vo in location_list">
 		    <div class="thumbnail">
 		      <a :href="'../location/location_detail.do?no='+vo.no">
-		        <img :src="vo.poster" alt="Lights" style="width:350px;height:250px;">
+		        <img :src="vo.poster" alt="Lights" style="width:400px;height:300px;">
 		        <div class="caption">
 		          <p>{{vo.title }}</p>
 		        </div>

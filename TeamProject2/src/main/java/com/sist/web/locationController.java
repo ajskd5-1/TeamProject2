@@ -19,3 +19,4 @@ public class locationController {
 		return "location/location_detail";
 	}
 }
+
