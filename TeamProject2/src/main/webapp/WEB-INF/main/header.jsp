@@ -36,7 +36,7 @@
           <li><a href="../location/location_list.do">관광지</a></li>
           <li><a href="#">맛집</a></li>
           <li><a href="#">코스짜기</a></li>
-          <li><a href="#">자유게시판</a></li>
+          <li><a href="../board/list.do">자유게시판</a></li>
           <c:if test="${sessionScope.id!=null }">
         <li><a href="../member/logout.do">로그아웃</a></li>
       </c:if>
