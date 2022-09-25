@@ -38,12 +38,13 @@
           <li><a href="#">코스짜기</a></li>
           <li><a href="../board/list.do">자유게시판</a></li>
           <c:if test="${sessionScope.id!=null }">
-        <li><a href="../member/logout.do">로그아웃</a></li>
-      </c:if>
-      <c:if test="${sessionScope.id==null }">
-        <li><a href="../member/login.do">로그인</a></li>
-      </c:if>
-          <li><a href="#">회원가입</a></li>
+            <li><a href="../member/logout.do">로그아웃</a></li>
+          </c:if>
+          <c:if test="${sessionScope.id==null }">
+            <li><a href="../member/login.do">로그인</a></li>
+            <li><a href="#">회원가입</a></li>
+          </c:if>
+          <li><a href="../mypage/home.do">마이페이지</a></li>
         </ul>
       </nav>
       <!-- ################################################################################################ -->
@@ -57,16 +58,19 @@
     <article>
       <h3 class="heading font_title">Gravida ligula pulvinar</h3>
       <p>Sem eu tincidunt magna nulla eu turpis mauris eget ante fusce pharetra sodales arcu sed rutrum ipsum a ipsum.</p>
-      <footer>
-        <form class="group" method="post" action="#">
-          <fieldset>
-            <legend>Sign-Up:</legend>
-            <input type="email" value="" placeholder="Email Here&hellip;">
-            <button class="fas fa-sign-in-alt" type="submit" title="Submit"><em>Submit</em></button>
-          </fieldset>
-        </form>
-      </footer>
     </article>
+    
+    <br>
+    <form class="inline text-center" method="post" action="../search/search.do">
+      <select name="type" id="type" style="color: black; width: 60px; height: 30px">
+	    <option value="no">선택</option>
+		<option value="location">관광지</option>
+	    <option value="food">맛집</option>
+	    <option value="board">게시판</option>
+	  </select>
+	  <input type="text" class="input-md" style="color:black; height:30px;" name="ss">
+	  <input type="submit" class="btn btn-md btn-info" value="검색">
+    </form>
     <!-- ################################################################################################ -->
   </div>
   <!-- ################################################################################################ -->

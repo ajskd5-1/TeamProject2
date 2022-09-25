@@ -1,15 +1,31 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 </head>
 <body id="top">
 
 <div class="wrapper row3">
   <main class="hoc container clear"> 
+  
+    <!-- <div class="container">
+      <div class="row inline">
+        <select name="분류" id="ss">
+		  <option value="no">선택</option>
+		  <option value="location">관광지</option>
+		  <option value="food">맛집</option>
+		  <option value="board">게시판</option>
+	    </select>
+        <input type="text" class="input-sm" style="width: 150px;">
+        <input type="button" class="btn btn-sm btn-primary" value="검색">
+      </div>
+    </div> -->
+    
     <!-- main body -->
     <!-- ################################################################################################ -->
     <section id="introblocks">
@@ -60,24 +76,21 @@
   <section id="references" class="hoc container clear"> 
     <!-- ################################################################################################ -->
     <div class="sectiontitle">
-      <h6 class="heading">Aliquet vestibulum</h6>
-      <p>Eget magna eget sem imperdiet tincidunt vestibulum fringilla nulla</p>
+      <h1 class="font_title">관광지/레저</h1>
+      <p>심심한 여행은 가라! 다양한 관광지/레저 상품으로 나만의 여행 만들어보세요.</p>
     </div>
-    <nav class="ref-sort">
+    <!-- <nav class="ref-sort">
       <ul>
         <li class="current"><a href="#">Ultricies</a></li>
         <li><a href="#">Curabitur</a></li>
         <li><a href="#">Porttitor</a></li>
         <li><a href="#">Pulvinar</a></li>
       </ul>
-    </nav>
+    </nav> -->
     <ul class="nospace group ref-img">
-      <li class="one_third"><a class="imgover" href="#"><img src="../images/demo/348x261.png" alt=""></a></li>
-      <li class="one_third"><a class="imgover" href="#"><img src="../images/demo/348x261.png" alt=""></a></li>
-      <li class="one_third"><a class="imgover" href="#"><img src="../images/demo/348x261.png" alt=""></a></li>
-      <li class="one_third"><a class="imgover" href="#"><img src="../images/demo/348x261.png" alt=""></a></li>
-      <li class="one_third"><a class="imgover" href="#"><img src="../images/demo/348x261.png" alt=""></a></li>
-      <li class="one_third"><a class="imgover" href="#"><img src="../images/demo/348x261.png" alt=""></a></li>
+      <c:forEach var="vo" items="${list }">
+        <li class="one_third"><a class="imgover" href="#"><img src="${vo.poster }"></a></li>
+      </c:forEach>
     </ul>
     <footer class="block center"><a class="btn" href="#">View more here</a></footer>
     <!-- ################################################################################################ -->
