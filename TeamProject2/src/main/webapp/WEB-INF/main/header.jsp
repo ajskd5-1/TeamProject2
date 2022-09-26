@@ -34,7 +34,7 @@
             </ul>
           </li>
           <li><a href="../location/location_list.do">관광지</a></li>
-          <li><a href="#">맛집</a></li>
+          <li><a href="../food/food_list.do">맛집</a></li>
           <li><a href="../course/course.do">코스짜기</a></li>
           <li><a href="../board/list.do">자유게시판</a></li>
           <c:if test="${sessionScope.id!=null }">
