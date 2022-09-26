@@ -21,7 +21,7 @@ public class BoardRestController {
 			page="1";
 		int curpage=Integer.parseInt(page);
 		Map map=new HashMap();
-		int rowSize=2;
+		int rowSize=12;
 		int start=(rowSize*curpage)-(rowSize-1);
 		int end=rowSize*curpage;
 		

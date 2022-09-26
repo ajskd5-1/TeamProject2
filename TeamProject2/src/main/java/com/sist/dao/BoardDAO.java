@@ -22,4 +22,36 @@ public class BoardDAO {
 	{
 		return mapper.boardTotalpage();
 	}
+	public List<BoardVO> boardFindData(Map map)
+	{
+		return mapper.boardFindData(map);
+	}
+	
+	public void boardInsert(BoardVO vo)
+	{
+		mapper.boardInsert(vo);
+	}
+	public void boardInsert2(BoardVO vo)
+	{
+		mapper.boardInsert2(vo);
+	}
+	public BoardVO boardDetailData(int no)
+	{
+		mapper.hitIncrement(no);
+		return mapper.boardDetailData(no);
+	}
+	public BoardVO boardUpdateData(int no)
+	{
+		return mapper.boardDetailData(no);
+	}
+	
+	public void boardUpdate(BoardVO vo)
+	{
+		mapper.boardUpdate(vo);
+	}
+	
+	public void boardDelete(int no)
+	{
+		mapper.boardDelete(no);
+	}
 }

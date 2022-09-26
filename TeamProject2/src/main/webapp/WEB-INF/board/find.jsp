@@ -40,13 +40,14 @@ td{
 </head>
 <body>
   <div class="container boardContainer">
-      <h1 class="text-center">자유게시판</h1>
+      <h3 class="text-center"><span style="color: blue;">'${ss }'</span>에 대한 검색결과 입니다.&nbsp;&nbsp;&nbsp;
+        <a href="../board/list.do" class="btn btn-Lg">게시판으로 돌아가기</a></h3>
       <br><br><br>
-      <form action="board/find.do" method="post">
+      <form action="find.do" method="post">
       <table class="Search">
         <tr>
             <td width="60%" class="aa" style="text-align: left;">
-              <a href="../board/insert.do" class="btn btn-L btn-primary">게시물 작성</a>
+              
             </td>
             <td width="5%" class="aa"><input type="checkbox" name=fd value="N">이름</td>
             <td width="5%" class="aa"><input type="checkbox" name=fd value="S">제목</td>
@@ -69,17 +70,26 @@ td{
         </tr>
        </thead>
        <tbody>
-       <c:forEach var="vo" items="${list }">
-        <tr>
-          <td width=10% class="text-center">${vo.no }</td>
-          <td width=45%>
-            <a href="#">${vo.sbject }<span style="color: gray;"> (${vo.recount })</span></a>
-          </td>
-          <td width=15% class="text-center">${vo.name }</td>
-          <td width=20% class="text-center">${vo.dbday }</td>
-          <td width=10% class="text-center">${vo.hit }</td>
-        </tr>
-        </c:forEach>
+         <c:choose>
+           <c:when test="${!empty list }">
+     		<c:forEach var="vo" items="${list }">
+		        <tr>
+		          <td width=10% class="text-center">${vo.no }</td>
+		          <td width=45%>
+		            <a href="#">${vo.subject }<span style="color: gray;"> (${vo.recount })</span></a>
+		          </td>
+		          <td width=15% class="text-center">${vo.name }</td>
+		          <td width=20% class="text-center">${vo.dbday }</td>
+		          <td width=10% class="text-center">${vo.hit }</td>
+		        </tr>
+		    </c:forEach>
+	        </c:when>
+	        <c:otherwise>
+	         <tr>
+	          <td colspan="5" class="text-center" style="font-size: 15pt; color: red;">검색 결과 없음</td>
+	        </tr>
+	        </c:otherwise>
+	      </c:choose>
        </tbody>
       </table>
     </div>

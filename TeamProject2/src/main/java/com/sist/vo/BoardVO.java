@@ -19,12 +19,15 @@ JEADMIN               NUMBER
  */
 import java.util.*;
 
+import org.springframework.web.multipart.MultipartFile;
+
 import lombok.Getter;
 import lombok.Setter;
 @Getter
 @Setter
 public class BoardVO {
-	int no,hit,filecount,recount,group_id,group_step,group_tab,root,depth,jeadmin;
-	String name,subject,content,filename,filesize,dbday;
-	Date regdate;
+	private int no,hit,filecount,recount,group_id,group_step,group_tab,root,depth,jeadmin;
+	private String name,subject,content,filename,filesize,dbday;
+	private Date regdate;
+	private List<MultipartFile> files;
 }

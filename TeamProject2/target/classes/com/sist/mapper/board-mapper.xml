@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sist.mapper.BoardMapper">
+  <select id="boardFindData" resultType="BoardVO" parameterType="hashmap">
+  SELECT no,subject,name,regdate,hit,recount,jeadmin,content,num
+  FROM (SELECT no,subject,name,regdate,hit,recount,jeadmin,content,rownum as num
+  FROM (SELECT no,subject,name,regdate,hit,recount,jeadmin,content
+  FROM jeju_board_1_2 ORDER BY jeadmin DESC, no DESC))
+  WHERE
+  <trim prefix="(" suffix=")" prefixOverrides="OR">
+    <foreach collection="fsArr" item="fd">
+      <trim prefix="OR">
+        <choose>
+          <when test="fd=='N'.toString()">
+              name LIKE '%'||#{ss}||'%'
+            </when>
+            <when test="fd=='S'.toString()">
+              subject LIKE '%'||#{ss}||'%'
+            </when>
+            <when test="fd=='C'.toString()">
+              content LIKE '%'||#{ss}||'%'
+            </when>
+        </choose>
+      </trim>
+    </foreach>
+  </trim>
+  </select>
+</mapper>

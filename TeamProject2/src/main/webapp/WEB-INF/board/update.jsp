@@ -78,16 +78,16 @@ $(function(){
 </head>
 <body>
   <div class="container boardContainer">
-    <h3>자유롭게 게시물을 작성해주세요.</h3>
+    <h3>게시물을 수정합니다.</h3>
     <br><br><br>
     <div class="row">
     <%-- enctype="multipart/form-data" 파일업로드 프로토콜 (생략이되면 파일업로드를 할 수 없다) --%>
-      <form method=post action="insert_ok.do" id="frm" enctype="multipart/form-data">
+      <form method=post action="update_ok.do?no=${vo.no }" id="frm" enctype="multipart/form-data">
       <table class="table">
        <tr>
-         <th width=20% class="text-right" >제목</th>
+         <th width=20% class="text-right">제목</th>
          <td width=80%>
-           <input type=text name="subject" id="subject" size=70 class="input-sm">
+           <input type=text name="subject" id="subject" size=70 class="input-sm" value="${vo.subject }"> 
          </td>
        </tr>
        <tr>
@@ -111,13 +111,13 @@ $(function(){
        <tr>
          <th width=20% class="text-right">내용</th>
          <td width=80%>
-           <textarea rows="10" cols="70" name="content" id="content"></textarea>
+           <textarea rows="10" cols="70" name="content" id="content">${vo.content }</textarea>
          </td>
        </tr>
       </table>
       </form>
       <div class="text-center">
-          <input type=button value="글쓰기" class="btn btn-sm btn-warning" id="writeBtn">
+          <input type=button value="수정하기" class="btn btn-sm btn-warning" id="writeBtn">
           <input type=button value="취소" class="btn btn-sm btn-primary"
             onclick="javascript:history.back()">
       </div>
