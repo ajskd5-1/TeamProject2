@@ -37,16 +37,7 @@ public class MainRestController {
 		}
 		List<LocationVO> list = service.search_search(map);
 		
-		for(LocationVO vo : list) {
-			String title = vo.getTitle();
-			if(title.length()>15) {
-				title = title.substring(0, 15) + "...";
-				vo.setTitle(title);
-			}
-		}
-		
 		int totalpage = service.search_totalpage(map);
-		System.out.println(totalpage);
 		final int BLOCK = 10;
 		int startPage = ((page-1)/BLOCK*BLOCK)+1;
 		int endPage = ((page-1)/BLOCK*BLOCK)+BLOCK;
@@ -58,9 +49,15 @@ public class MainRestController {
 		int k = 0;
 		for(LocationVO vo : list) {
 			JSONObject obj = new JSONObject();
+			String title = vo.getTitle();
+			if(title.length()>15) {
+				title = title.substring(0, 15) + "...";
+			}
+			obj.put("t", title);
 			obj.put("no", vo.getNo());
 			obj.put("title", vo.getTitle());
 			obj.put("poster", vo.getPoster());
+			obj.put("addr", vo.getAddr());
 			
 			if(k == 0) {
 				obj.put("curpage", page);
@@ -72,8 +69,6 @@ public class MainRestController {
 			arr.add(obj);
 			k++;
 		}
-		
-		
 		
 		result = arr.toJSONString();
 		return result;

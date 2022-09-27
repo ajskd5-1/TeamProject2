@@ -23,5 +23,5 @@ SCORE      VARCHAR2(50)
 @Setter
 public class FoodVO {
 	private int no;
-	private String title,poster,image,addr1,addr2,tel,type,parking,time,menu,score;	
+	private String title,poster,image,addr,addr2,tel,type,parking,time,menu,score;	
 }

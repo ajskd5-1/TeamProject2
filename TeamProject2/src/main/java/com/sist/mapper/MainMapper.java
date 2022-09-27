@@ -6,13 +6,13 @@ import com.sist.vo.*;
 
 public interface MainMapper {
 	// 메인 추천
-	@Select("SELECT no, title, poster, rownum FROM jeju_location_1_2 WHERE rownum<=6")
+	@Select("SELECT no, title, poster, addr, rownum FROM jeju_location_1_2 WHERE rownum<=6")
 	public List<LocationVO> main_location();
 	
 	// 검색
-	@Select("SELECT no, title, poster, num "
-			+ "FROM (SELECT no, title, poster, rownum as num "
-			+ "FROM (SELECT no, title, poster "
+	@Select("SELECT no, title, poster, addr, num "
+			+ "FROM (SELECT no, title, poster, addr, rownum as num "
+			+ "FROM (SELECT no, title, poster, addr "
 			+ "FROM ${table_name} WHERE REGEXP_LIKE(title, #{ss}) ORDER BY no ASC)) "
 			+ "WHERE num BETWEEN #{start} AND #{end}")
 	public List<LocationVO> search_search(Map map);

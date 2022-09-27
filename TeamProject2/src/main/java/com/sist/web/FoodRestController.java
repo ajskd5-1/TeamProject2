@@ -75,7 +75,7 @@ public class FoodRestController {
     		obj.put("no", vo.getNo()); 
     		obj.put("title", vo.getTitle());
     		obj.put("poster", vo.getPoster());
-    		obj.put("addr1", vo.getAddr1());
+    		obj.put("addr1", vo.getAddr());
     		obj.put("tel", vo.getTel());
     		obj.put("type", vo.getType());
     		obj.put("time", vo.getTime());

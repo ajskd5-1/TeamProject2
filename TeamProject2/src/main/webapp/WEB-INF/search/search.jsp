@@ -41,10 +41,9 @@
     <div style="height: 20px;"></div>
     <div class="row">
       <div class="text-center">
-          <input type="button" class="btn btn-lg btn-warning" value="이전" @click="prev()">
-            {{curpage}} page / {{totalpage}} pages
-          <input type="button" class="btn btn-lg btn-success" value="다음" @click="next()">
-        </div>
+        <input type="button" class="btn btn-lg btn-warning" value="이전" @click="prev()">
+          {{curpage}} page / {{totalpage}} pages
+        <input type="button" class="btn btn-lg btn-success" value="다음" @click="next()">
       </div>
     </div>
   </div>

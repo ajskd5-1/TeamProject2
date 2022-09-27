@@ -30,21 +30,27 @@
 </style>
 </head>
 <body>
-  <center>
-     <table border=1 bordercolor=black width=900 height="700">
-      <tr>
-        <td width=100% height=100 colspan="2"><tiles:insertAttribute name="header"/></td>
-      </tr>
-      <tr>
-         <td width=30% height="500"><tiles:insertAttribute name="menu"/></td>
-         <td width=70% height=500><tiles:insertAttribute name="content"/></td>
-      </tr>
-      <tr>
-         <td width=100% height=100 colspan="2"><tiles:insertAttribute name="footer"/></td>
-      </tr>
-    </table>
-  </center>
+  <tiles:insertAttribute name="header"/>
   
+<div class="wrapper row3">
+  <main class="hoc container clear"> 
+    <!-- main body -->
+    <!-- ################################################################################################ -->
+    <div class="sidebar one_quarter first"> 
+      <tiles:insertAttribute name="menu"/>
+    </div>
+    <!-- ################################################################################################ -->
+    <!-- ################################################################################################ -->
+    <div class="content three_quarter"> 
+      <tiles:insertAttribute name="content"/>
+    </div>
+    <!-- ################################################################################################ -->
+    <!-- / main body -->
+    <div class="clear"></div>
+  </main>
+</div>
+  
+  <tiles:insertAttribute name="footer"/>
 <script src="../layout/scripts/jquery.min.js"></script>
 <script src="../layout/scripts/jquery.backtotop.js"></script>
 <script src="../layout/scripts/jquery.mobilemenu.js"></script>

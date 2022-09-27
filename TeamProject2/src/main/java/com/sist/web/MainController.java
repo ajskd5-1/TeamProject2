@@ -31,8 +31,10 @@ public class MainController {
 	
 	@RequestMapping("search/search.do")
 	public String search_search(String type, String ss, Model model) {
+		
 		model.addAttribute("type", type);
 		model.addAttribute("ss", ss);
 		return "search/search";
 	}
+	
 }

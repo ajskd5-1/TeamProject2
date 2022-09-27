@@ -7,6 +7,6 @@ import lombok.Setter;
 @Setter
 public class CourseVO {
 	private int no, inwon;
-	private String rday, rtime, place, addr, dbday;
+	private String rday, place, addr, dbday, id;
 	private Date regdate;
 }

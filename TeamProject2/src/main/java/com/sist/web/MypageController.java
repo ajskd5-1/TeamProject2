@@ -9,4 +9,9 @@ public class MypageController {
 	public String mypage_home() {
 		return "mypage/home";
 	}
+	
+	@GetMapping("mypage/my_course.do")
+	public String mypage_course() {
+		return "mypage/my_course";
+	}
 }
