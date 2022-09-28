@@ -20,5 +20,5 @@ public interface LocationMapper {
 	   
 	   @Select("SELECT * FROM jeju_location_1_2 "
 			  +"WHERE no=#{no}")
-	   public LocationVO locationDetailData(Map map);
+	   public LocationVO locationDetailData(int no);
 }

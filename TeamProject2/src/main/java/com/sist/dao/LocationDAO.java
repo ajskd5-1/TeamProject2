@@ -33,8 +33,8 @@ public class LocationDAO {
 	 
 	 /*@Select("SELECT * FROM ${jeju_location_1_2} "
 			 +"WHERE no=#{no}")*/
-	 public LocationVO LocationDetailData(Map map)
+	 public LocationVO LocationDetailData(int no)
 	 {
-		 return mapper.locationDetailData(map);
+		 return mapper.locationDetailData(no);
 	 }
 }

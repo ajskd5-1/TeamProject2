@@ -19,6 +19,6 @@ TYPE       VARCHAR2(200)
 @Getter
 @Setter
 public class LocationVO {
-	private int no,price2;
+	private int no,price2; 
 	private String title,poster,content,price,image,info,addr,type;
 }
