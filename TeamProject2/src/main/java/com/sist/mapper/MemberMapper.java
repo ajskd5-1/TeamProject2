@@ -1,15 +1,66 @@
 package com.sist.mapper;
 
+import java.util.*;
+
+import org.apache.ibatis.annotations.Delete;
+import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.Update;
 
-import com.sist.vo.MemberVO;
-
+import com.sist.vo.*;
+/*
+ * private String id;
+private String pwd;
+private String name;
+private String sex;
+private String birthday;
+private String email;
+private String tel;
+private String sessionid;
+private Date limited;
+private String role;
+ */
 public interface MemberMapper {
-	@Select("SELECT COUNT(*) FROM spring_member2 "
-			+"WHERE id=#{id}")
-	public int memberIdCount(String id);
-	@Select("SELECT pwd,name FROM spring_member2 "
-			+"WHERE id=#{id}")
-	public MemberVO memberInfoData(String id);
 
+	// 회원가입
+	// 아이디 중복 찾기
+	@Select("SELECT COUNT(*) FROM jeju_member_1_2 WHERE id=#{id}")
+	public int memberIdCheck(String id);
+	// 이메일 중복 찾기
+	@Select("SELECT COUNT(*) FROM jeju_member_1_2 WHERE email=#{email}")
+	public int memberEmailCheck(String email);
+	// 전화번호 중복 찾기
+	@Select("SELECT COUNT(*) FROM jeju_member_1_2 WHERE tel=#{tel}")
+	public int memberTelCheck(String tel);
+	@Insert("INSERT INTO jeju_member_1_2 VALUES("
+			  +"#{id},#{pwd},#{name},#{sex},#{birthday},#{email},"
+			  +"#{tel},'',null,'ROLE_USER')")
+	public void memberJoinInsert(MemberVO vo);
+	// 로그인    ==> 복호화 ====> 자동로그인
+	@Select("SELECT pwd,name,role FROM jeju_member_1_2 "
+			  +"WHERE id=#{id}")
+	public MemberVO memberJoinInfoData(String id);
+	//회원정보 수정
+	@Select("SELECT pwd FROM jeju_member_1_2 "
+			+"WHERE id=#{id}")
+	public String memberGetPassword(String id);
+	@Select("SELECT * FROM jeju_member_1_2 "
+			+"WHERE id=#{id}")
+	public MemberVO memberUpdateData(String id);
+	
+	@Update("UPDATE jeju_member_1_2 SET "
+			   +"pwd=#{pwd},name=#{name},sex=#{sex},email=#{email},"
+			   +"tel=#{tel} "
+			   +"WHERE id=#{id}")
+   public void memberUpdate(MemberVO vo);
+	
+	@Delete("DELETE jeju_member_1_2 "
+			+ "WHERE id=#{id} and pwd=#{pwd}")
+	 public void memberDelete(MemberVO vo);
+	
+	
+	
+
+
+	
 }

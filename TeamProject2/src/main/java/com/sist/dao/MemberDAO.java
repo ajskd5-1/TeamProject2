@@ -1,50 +1,85 @@
 package com.sist.dao;
-import java.util.*;
 
-import org.apache.ibatis.annotations.Select;
+import java.io.Reader;
+
+import org.apache.ibatis.annotations.Delete;
+import org.apache.ibatis.io.Resources;
+import org.apache.ibatis.session.SqlSession;
+import org.apache.ibatis.session.SqlSessionFactory;
+import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import com.sist.mapper.MemberMapper;
-import com.sist.vo.MemberVO;
+import com.sist.mapper.*;
+import com.sist.vo.*;
 
 @Repository
 public class MemberDAO {
 	@Autowired
 	private MemberMapper mapper;
 	
-	/*
-	 * @Select("SELECT COUNT(*) FROM spring_member2 "
-			+"WHERE id=#{id}")
-		public int memberIdCount(String id);
-		@Select("SELECT pwd,name FROM spring_member2 "
-				+"WHERE id=#{id}")
-		public MemberVO memberInfoData(String id);
-	 */
+	 private static SqlSessionFactory ssf;
+	   static
+	   {
+		   try
+		   {
+			   // XML 읽기 
+			   // src/main/java => Config.xml  (classpath영역=>마이바티스 자동인식)
+			   Reader reader=Resources.getResourceAsReader("Config.xml");
+			   ssf=new SqlSessionFactoryBuilder().build(reader);
+		   }catch(Exception ex)
+		   {
+			   ex.printStackTrace();
+		   }
+	   }
 	
-	public MemberVO isLogin(String id,String pwd)
+	//회원가입
+	public void memberJoinInsert(MemberVO vo)
 	{
-		MemberVO vo =new MemberVO();
-		int count=mapper.memberIdCount(id);
-		if(count==0)
-		{
-			vo.setMsg("NOID");
-		}
-		else
-		{
-			MemberVO mvo=mapper.memberInfoData(id);
-			if(pwd.equals(mvo.getPwd()))
-			{
-				vo.setMsg("OK");
-				vo.setName(mvo.getName());
-			}
-			else
-			{
-				vo.setMsg("NOPWD");
-			}
-		
-		}
-		return vo;
+		mapper.memberJoinInsert(vo);
 	}
+	
+	//아이디체크
+	public int memberIdCheck(String id)
+	{
+		return mapper.memberIdCheck(id);
+	}
+	//이메일체크
+	public int memberEmailCheck(String email)
+	{
+		return mapper.memberEmailCheck(email);
+	}
+	//전화번호체크
+	public int memberTelCheck(String tel)
+	{
+		return mapper.memberEmailCheck(tel);
+	}
+	//로그인
+	public MemberVO memberJoinInfoData(String id)
+    {
+    	return mapper.memberJoinInfoData(id);
+    }
+	// 회원정보 수정
+	 public String memberGetPassword(String id)
+     {
+    	 return mapper.memberGetPassword(id);
+     }
+     
+     public MemberVO memberUpdateData(String id)
+     {
+    	 return mapper.memberUpdateData(id);
+     }
+     
+  	public void memberUpdate(MemberVO vo)
+  	{
+  		mapper.memberUpdate(vo);
+  	}
+  	//탈퇴하기
+	
+  
+	
+  	
+  	
+  	
 
 }

@@ -42,7 +42,7 @@
           </c:if>
           <c:if test="${sessionScope.id==null }">
             <li><a href="../member/login.do">로그인</a></li>
-            <li><a href="#">회원가입</a></li>
+            <li><a href="../member/join.do">회원가입</a></li>
           </c:if>
           <li><a href="../mypage/home.do">마이페이지</a></li>
         </ul>
