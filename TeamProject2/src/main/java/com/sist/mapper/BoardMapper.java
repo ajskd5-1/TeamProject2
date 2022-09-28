@@ -70,5 +70,25 @@ public interface BoardMapper {
 	@Delete("DELETE FROM jeju_board_1_2 "
 			+ "WHERE no=#{no}")
 	public void boardDelete(int no);
+	
+	// 페이지
+	@Select("SELECT no,subject,name,rownum "
+			+ "FROM (SELECT no,subject,name,rownum "
+			+ "FROM jeju_board_1_2 ORDER BY rownum ASC) "
+			+ "WHERE no<#{no} ORDER BY no DESC")
+	public List<BoardVO> boardPrevData(int no);
+	
+	@Select("SELECT no,subject,name,rownum "
+			+ "FROM (SELECT no,subject,name,rownum "
+			+ "FROM jeju_board_1_2 ORDER BY rownum ASC) "
+			+ "WHERE no>#{no} ORDER BY no ASC")
+	public List<BoardVO> boardNextData(int no);
+	
+	//공지사항 
+	@Insert("INSERT INTO jeju_board_1_2(no,name,subject,content,regdate,"
+			+ "filename,filesize,filecount,group_id,jeadmin) VALUES("
+			+"(SELECT NVL(MAX(no)+1,1) FROM jeju_board_1_2),#{name},#{subject},#{content},"
+			+ "SYSDATE,#{filename},#{filesize},#{filecount},(SELECT NVL(MAX(group_id)+1,1) FROM jeju_board_1_2),(SELECT NVL(MAX(jeadmin)+1,1) FROM jeju_board_1_2))")
+	public void boardNoticeInsert(BoardVO vo);
 		
 }

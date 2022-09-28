@@ -121,6 +121,10 @@ public class BoardController {
 			model.addAttribute("fList",fList);
 			model.addAttribute("sList",sList);
 		}
+		List<BoardVO> plist=dao.boardPrevData(no);
+		model.addAttribute("plist",plist);
+		List<BoardVO> nlist=dao.boardNextData(no);
+		model.addAttribute("nlist",nlist);
 		
 		return "board/detail";
 	}
@@ -165,6 +169,64 @@ public class BoardController {
     {
     	dao.boardDelete(no);
     	return "redirect:list.do";
+    }
+    // 관리자-공지사항    
+    @GetMapping("board/notice.do")
+    public String board_notice()
+    {
+    	return "board/notice";
+    }
+    @PostMapping("board/notice_ok.do")
+    public String board_notice_ok(BoardVO vo,HttpServletRequest request)
+    {
+    	HttpSession session=request.getSession();
+    	String name=(String)session.getAttribute("id");
+    	List<MultipartFile> list=vo.getFiles();
+    	String path="c:\\download\\";
+    	try {
+    		if(list==null) // 업로드된 파일이 없는 경우 
+    		{
+    			vo.setFilename("");
+    			vo.setFilesize("");
+    			vo.setFilecount(0);
+    			vo.setName(name);
+    		}
+    		else // 업로드가 된 상태 
+			{
+				String temp1="";
+				String temp2="";
+				for(MultipartFile mf:list)
+				{
+					String filename=mf.getOriginalFilename(); // 사용자가 선택한 파일명
+					mf.transferTo(new File(path+filename));// 업로드 
+					//업로드가 된거를 가지구
+					temp1+=filename+",";
+					File f=new File(path+filename);
+					long len=f.length();
+					temp2+=len+",";
+				}
+				temp1=temp1.substring(0,temp1.lastIndexOf(","));
+				temp2=temp2.substring(0,temp2.lastIndexOf(","));
+				vo.setFilename(temp1);
+				vo.setFilesize(temp2);
+				vo.setFilecount(list.size());
+				vo.setName(name);
+			}
+    		dao.boardNoticeInsert(vo);
+    	}catch(Exception ex)
+    	{
+    		System.out.println("board_notice_ok 에러");
+    		ex.printStackTrace();
+    	}
+    	return "redirect:list.do";
+    	
+    }
+    
+ // 채팅
+    @GetMapping("chat/chat.do")
+    public String board_chat()
+    {
+    	return "site/chat/chat";
     }
 
 }

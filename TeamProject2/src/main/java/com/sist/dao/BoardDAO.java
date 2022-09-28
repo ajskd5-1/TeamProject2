@@ -54,4 +54,20 @@ public class BoardDAO {
 	{
 		mapper.boardDelete(no);
 	}
+	
+	//공지사항
+	public void boardNoticeInsert(BoardVO vo)
+	{
+	    mapper.boardNoticeInsert(vo);
+	}
+	
+	public List<BoardVO> boardPrevData(int no)
+	{
+		return mapper.boardPrevData(no);
+	}
+	
+	public List<BoardVO> boardNextData(int no)
+	{
+		return mapper.boardNextData(no);
+	}
 }

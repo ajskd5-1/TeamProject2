@@ -71,13 +71,17 @@ $(function(){
 </head>
 <body>
   <div class="container boardContainer">
-      <h1 class="text-center">자유게시판</h1>
-      <br><br><br>
+      <h1 class="text-center font_title">자유게시판</h1>
+      <h4 class="text-right"><a href="../chat/chat.do"><img src="https://img.icons8.com/arcade/64/000000/experimental-chat-arcade.png">실시간 채팅</a></h4>
+      <br>
       <form action="find.do" method="post" id="frm">
       <table class="Search">
         <tr>
             <td width="60%" class="aa" style="text-align: left;">
               <a href="#" class="btn btn-Lg btn-primary" id="insertBtn">게시물 작성</a>
+             <c:if test="${sessionScope.id=='hong' }">
+              <a href="../board/notice.do" class="btn btn-Lg btn-warning" id="insertBtn">공지사항 작성</a>
+              </c:if>
             </td>
             <td width="5%" class="aa"><input type="checkbox" name=fd value="N" id="N">이름</td>
             <td width="5%" class="aa"><input type="checkbox" name=fd value="S" id="S">제목</td>
@@ -88,7 +92,7 @@ $(function(){
       </table>
       </form>
       <hr>
-      <br><br>
+      <br>
       <table class="table table-hover">
        <thead>
         <tr>
