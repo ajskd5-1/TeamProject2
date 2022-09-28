@@ -22,3 +22,4 @@ public interface FoodMapper {
 			+"WHERE no=#{no}") 
 	   public FoodVO foodDetailData(int no);
 }
+

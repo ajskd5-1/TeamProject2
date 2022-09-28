@@ -65,7 +65,7 @@ public class FoodRestController {
     }
 	
 	@GetMapping(value="food/food_detail.do",produces = "text/plain;charset=utf-8")
-    public String food_detail_vue(int no)
+    public String food_detail(int no)
     {
 		String result="";
     	try
@@ -75,7 +75,7 @@ public class FoodRestController {
     		obj.put("no", vo.getNo()); 
     		obj.put("title", vo.getTitle());
     		obj.put("poster", vo.getPoster());
-    		obj.put("addr1", vo.getAddr());
+    		obj.put("addr", vo.getAddr());
     		obj.put("tel", vo.getTel());
     		obj.put("type", vo.getType());
     		obj.put("time", vo.getTime());

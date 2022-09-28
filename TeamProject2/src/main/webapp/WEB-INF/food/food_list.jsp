@@ -12,6 +12,9 @@
    margin: 0px auto;
    width:100%
 }
+.row1{
+	width: 100%;
+}
 .img{
 	position: relative;
 }
@@ -30,6 +33,9 @@
 	margin-top: 10px;
 	text-align:center;
 }
+.search-bar{
+	display:inline-block;
+}
 </style>
 <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.min.js"></script>
 <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
@@ -42,6 +48,10 @@
    	</p>
        <h1 class="font_title" id="text_box" style="font-size:50px; color:#F3F3F3; font-weight: bold;">맛집</h1>
    </div>
+   <div class="row search-bar">
+        Search:<input type=text size=20 class="input-sm" :value="ss" ref="ss" v-model="ss">
+        <input type=button value="검색" class="btn btn-sm btn-primary" v-on:click="foodFind()">
+   </div> 
    <div id="food_list">
     <div style="height: 20px"></div>
     <div class="row" >
