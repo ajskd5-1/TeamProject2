@@ -147,6 +147,23 @@
     <!-- ################################################################################################ -->
   </section>
 </div>
+<div class="container">
+  <div class="two_third first">
+	  <h2 class="font_title">게시판 인기글 <span class="font_title" style="color: orange;">TOP5</span></h2>
+	  <p>게시판에서 조회수가 가장 높은 인기글을 소개합니다. <a href="../board/list.do">'자유게시판' 바로가기</a></p><br>
+	  <c:forEach items="${blist }" var="bvo">
+		  <div class="alert alert-warning">
+		    <span class="font_title">[TOP ${bvo.rownum }]</span>&nbsp;&nbsp;
+		    <a  style="color: #161392;" href="../board/detail.do?no=${bvo.no}" class="alert-link">${bvo.subject }</a>
+		    &nbsp;&nbsp;&nbsp;&nbsp;(조회수: ${bvo.hit })
+		  </div>
+	  </c:forEach>
+  </div>
+  <div class="one_third" >
+  	<br><br><br><br><br>
+	  <img src="../images/demo/boardjeju3.jpg">
+  </div>
+</div>
 <!-- ################################################################################################ -->
 <!-- ################################################################################################ -->
 <!-- ################################################################################################ -->

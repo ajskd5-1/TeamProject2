@@ -26,7 +26,7 @@ import lombok.Setter;
 @Getter
 @Setter
 public class BoardVO {
-	private int no,hit,filecount,recount,group_id,group_step,group_tab,root,depth,jeadmin;
+	private int no,hit,filecount,recount,group_id,group_step,group_tab,root,depth,jeadmin,rownum;
 	private String name,subject,content,filename,filesize,dbday;
 	private Date regdate;
 	private List<MultipartFile> files;

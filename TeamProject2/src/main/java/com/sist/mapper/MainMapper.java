@@ -19,4 +19,10 @@ public interface MainMapper {
 	@Select("SELECT CEIL(COUNT(*)/12.0) FROM ${table_name} "
 			+ "WHERE REGEXP_LIKE(title, #{ss})")
 	public int search_totalpage(Map map);
+	// 게시판 Top5
+	@Select("SELECT no,subject,name,hit,rownum "
+			+ "FROM (SELECT no,subject,name,hit,rownum "
+			+ "FROM jeju_board_1_2 ORDER BY hit DESC) "
+			+ "WHERE rownum BETWEEN 1 AND 5")
+	public List<BoardVO> boardTopData();
 }

@@ -25,6 +25,12 @@ public class MainServiceImpl implements MainService{
 	public int search_totalpage(Map map) {
 		return dao.search_totalpage(map);
 	}
+
+	@Override
+	public List<BoardVO> boardTopData() {
+		// TODO Auto-generated method stub
+		return dao.boardTopData();
+	}
 	
 	
 }

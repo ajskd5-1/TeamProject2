@@ -23,12 +23,12 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.sist.vo.*;
-import com.sist.dao.*;
+import com.sist.service.BoardService;
 
 @Controller
 public class BoardController {
 	@Autowired
-    private BoardDAO dao;
+    private BoardService service;
 	
 	@GetMapping("board/list.do")
 	public String board_list()
@@ -46,7 +46,7 @@ public class BoardController {
     	Map map=new HashMap();
     	map.put("fsArr", fd);
     	map.put("ss", ss);
-    	List<BoardVO> list=dao.boardFindData(map);
+    	List<BoardVO> list=service.boardFindData(map);
     	model.addAttribute("list", list);
     	model.addAttribute("ss",ss);
     	return "board/find";
@@ -87,7 +87,7 @@ public class BoardController {
 				vo.setFilecount(list.size());
 				vo.setName(name);
 			}
-    		dao.boardInsert(vo);
+    		service.boardInsert(vo);
     	}catch(Exception ex)
     	{
     		System.out.println("board_insert_ok : error");
@@ -101,7 +101,7 @@ public class BoardController {
     public String databoard_detail(int no,Model model)
 	{
 		//DAO연동 ==> 다운로드 
-		BoardVO vo=dao.boardDetailData(no);
+		BoardVO vo=service.boardDetailData(no);
 		model.addAttribute("vo",vo);
 		
 		if(vo.getFilecount()!=0) //업로드된 파일이 있는 경우에만 전송 
@@ -121,9 +121,9 @@ public class BoardController {
 			model.addAttribute("fList",fList);
 			model.addAttribute("sList",sList);
 		}
-		List<BoardVO> plist=dao.boardPrevData(no);
+		List<BoardVO> plist=service.boardPrevData(no);
 		model.addAttribute("plist",plist);
-		List<BoardVO> nlist=dao.boardNextData(no);
+		List<BoardVO> nlist=service.boardNextData(no);
 		model.addAttribute("nlist",nlist);
 		
 		return "board/detail";
@@ -154,20 +154,20 @@ public class BoardController {
     @GetMapping("board/update.do")
 	public String board_update(int no,Model model)
 	{	
-		BoardVO vo=dao.boardUpdateData(no);
+		BoardVO vo=service.boardUpdateData(no);
 		model.addAttribute("vo",vo);
 		return "board/update";
 	}
     @PostMapping("board/update_ok.do")
     public String board_update_ok(BoardVO vo)
     {
-    	dao.boardUpdate(vo);
+    	service.boardUpdate(vo);
     	return "redirect:list.do";
     }
     @GetMapping("board/delete.do")
     public String board_delete(int no)
     {
-    	dao.boardDelete(no);
+    	service.boardDelete(no);
     	return "redirect:list.do";
     }
     // 관리자-공지사항    
@@ -212,7 +212,7 @@ public class BoardController {
 				vo.setFilecount(list.size());
 				vo.setName(name);
 			}
-    		dao.boardNoticeInsert(vo);
+    		service.boardNoticeInsert(vo);
     	}catch(Exception ex)
     	{
     		System.out.println("board_notice_ok 에러");

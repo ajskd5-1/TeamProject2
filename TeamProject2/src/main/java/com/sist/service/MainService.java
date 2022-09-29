@@ -10,4 +10,5 @@ public interface MainService {
 	
 	public List<LocationVO> search_search(Map map);
 	public int search_totalpage(Map map);
+	public List<BoardVO> boardTopData();
 }

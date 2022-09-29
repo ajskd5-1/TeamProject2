@@ -35,7 +35,7 @@ public interface BoardMapper {
 			  +"WHERE num BETWEEN #{start} AND #{end}")
 	public List<BoardVO> boardListData(Map map);
 	
-	@Select("SELECT CEIL(COUNT(*)/12.0) FROM jeju_board_1_2")
+	@Select("SELECT CEIL(COUNT(*)/10.0) FROM jeju_board_1_2")
 	public int boardTotalpage();
 	
 	//<select id="boardFindData" resultType="com.sist.vo.BoardVO" parameterType="hashmap">

@@ -32,5 +32,9 @@ public class MainDAO {
 	public int search_totalpage(Map map) {
 		return mapper.search_totalpage(map);
 	}
-	
+//  게시판)public List<BoardVO> boardTopData();	
+	public List<BoardVO> boardTopData(){
+		return mapper.boardTopData();
+	}
+		
 }
