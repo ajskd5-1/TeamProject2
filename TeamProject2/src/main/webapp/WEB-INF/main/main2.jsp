@@ -15,14 +15,20 @@
     font-weight: normal;
     font-style: normal;
 }
-@font-face {
+/* @font-face {
     font-family: 'IM_Hyemin-Bold';
     src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2106@1.1/IM_Hyemin-Bold.woff2') format('woff');
     font-weight: normal;
     font-style: normal;
+} */
+@font-face {
+    font-family: 'NanumSquareRound';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_two@1.0/NanumSquareRound.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
 }
 *{
-	font-family: 'IM_Hyemin-Bold';
+	font-family: 'NanumSquareRound';
 }
 .font_title{
 	font-family: 'MaplestoryOTFBold';
