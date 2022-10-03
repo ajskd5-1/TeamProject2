@@ -6,6 +6,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 </head>
 <body>
 <div class="bgded overlay" style="background-image:url('../images/demo/backgrounds/제주도배경4.jpg');"> 
@@ -37,6 +38,7 @@
           <li><a href="../food/food_list.do">맛집</a></li>
           <li><a href="../course/course.do">코스짜기</a></li>
           <li><a href="../board/list.do">자유게시판</a></li>
+          <li><a href="../news/news.do">실시간 뉴스</a></li>
           <c:if test="${sessionScope.id!=null }">
             <li><a href="../mypage/home.do">마이페이지</a></li>
             <li><a href="../member/logout.do">로그아웃</a></li>
