@@ -49,14 +49,23 @@ public interface MemberMapper {
 	public MemberVO memberUpdateData(String id);
 	
 	@Update("UPDATE jeju_member_1_2 SET "
-			   +"pwd=#{pwd},name=#{name},sex=#{sex},email=#{email},"
+			   +"name=#{name},sex=#{sex},email=#{email},"
 			   +"tel=#{tel} "
 			   +"WHERE id=#{id}")
-   public void memberUpdate(MemberVO vo);
+	 public void memberUpdate(MemberVO vo);
 	
+	//아이디 찾기
+	
+	//회원정보 탈퇴
 	@Delete("DELETE jeju_member_1_2 "
-			+ "WHERE id=#{id} and pwd=#{pwd}")
-	 public void memberDelete(MemberVO vo);
+			   +"WHERE id=#{id}")
+	 public void memberDelete(String id);
+
+
+
+	
+	
+	
 	
 	
 	

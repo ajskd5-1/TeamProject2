@@ -14,11 +14,10 @@
   <h6>Lorem ipsum dolor</h6>
   <nav class="sdb_holder">
     <ul>
-      <li><a href="#">Navigation - Level 1</a></li>
-      <li><a href="#">Navigation - Level 1</a>
+      <li>회원 관리
         <ul>
-          <li><a href="#">Navigation - Level 2</a></li>
-          <li><a href="#">Navigation - Level 2</a></li>
+          <li><a href="../member/join_before.do">회원 수정</a></li>
+          <li><a href="../member/memberDelete.do">회원 탈퇴</a></li>
         </ul>
       </li>
       <li><a href="#">Navigation - Level 1</a>

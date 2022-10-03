@@ -1,37 +1,19 @@
 package com.sist.dao;
-
-import java.io.Reader;
+import com.sist.mapper.*;
 
 import org.apache.ibatis.annotations.Delete;
-import org.apache.ibatis.io.Resources;
-import org.apache.ibatis.session.SqlSession;
-import org.apache.ibatis.session.SqlSessionFactory;
-import org.apache.ibatis.session.SqlSessionFactoryBuilder;
+import org.apache.ibatis.annotations.Select;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import com.sist.mapper.*;
 import com.sist.vo.*;
 
 @Repository
 public class MemberDAO {
+	
 	@Autowired
 	private MemberMapper mapper;
 	
-	 private static SqlSessionFactory ssf;
-	   static
-	   {
-		   try
-		   {
-			   // XML 읽기 
-			   // src/main/java => Config.xml  (classpath영역=>마이바티스 자동인식)
-			   Reader reader=Resources.getResourceAsReader("Config.xml");
-			   ssf=new SqlSessionFactoryBuilder().build(reader);
-		   }catch(Exception ex)
-		   {
-			   ex.printStackTrace();
-		   }
-	   }
 	
 	//회원가입
 	public void memberJoinInsert(MemberVO vo)
@@ -70,16 +52,25 @@ public class MemberDAO {
     	 return mapper.memberUpdateData(id);
      }
      
-  	public void memberUpdate(MemberVO vo)
+ 	public void memberUpdate(MemberVO vo)
   	{
   		mapper.memberUpdate(vo);
   	}
+	
+  	
+  	//아이디 찾기
+  	
   	//탈퇴하기
-	
-  
-	
-  	
-  	
-  	
-
+ 	/*
+ 	 * @Select("SELECT pwd FROM jeju_member_1_2 "
+			+"WHERE id=#{id}")
+		public String memberGetPassword_delete(String id);
+		@Delete("DELETE jeju_member_1_2 "
+				   +"WHERE id=#{id}")
+		 public void memberDelete(MemberVO vo);
+ 	 */
+	 public void memberDelete(String id)
+	 {
+		 mapper.memberDelete(id);
+	 }
 }

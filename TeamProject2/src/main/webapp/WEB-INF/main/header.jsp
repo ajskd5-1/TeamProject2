@@ -38,13 +38,14 @@
           <li><a href="../course/course.do">코스짜기</a></li>
           <li><a href="../board/list.do">자유게시판</a></li>
           <c:if test="${sessionScope.id!=null }">
+            <li><a href="../mypage/home.do">마이페이지</a></li>
             <li><a href="../member/logout.do">로그아웃</a></li>
           </c:if>
           <c:if test="${sessionScope.id==null }">
             <li><a href="../member/login.do">로그인</a></li>
             <li><a href="../member/join.do">회원가입</a></li>
           </c:if>
-          <li><a href="../mypage/home.do">마이페이지</a></li>
+         
         </ul>
       </nav>
       <!-- ################################################################################################ -->

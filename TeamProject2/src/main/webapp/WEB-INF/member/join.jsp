@@ -168,130 +168,35 @@ $(function(){
   })
 <%-- joinBtn --%>
     $('#joinBtn').click(function(){
-    	if($("#id").val() == "" || $("#pwd_1").val() == "" || $("#pwd").val() == "" || $("#name").val() == "" || 
-    			$("#sex").val() == "" || $("#birthday").val() == "" || $("#email").val() == "" || $("#tel").val() == "")
+    	if($("#icheck").text() == '확인' && $("#pcheck").text() == '확인' && $("#echeck").text() == '확인' && $("#tcheck").text() == '확인')
     	{   
-    		$('#jPrint').text("모든 값을 입력해 주세요");
-			$('#jPrint').css("color","red");
-    		return false;
+    		if($("#id").val() == "" || $("#pwd_1").val() == "" || $("#pwd").val() == "" || $("#name").val() == "" || $("#sex").val() != "남성" && $("#sex").val() != "여성" ||
+        			$("#birthday").val() == "" || $("#email").val() == "" || $("#tel").val() == "" )
+    		{
+    			$('#jPrint').text("모든 값을 입력해주세요");
+    			$('#jPrint').css("color","red");
+    			return;
+    		}
+    		else
+    		{
+    			
+    			$('#join_frm').submit();
+    			return;
+    			
+    		}	
     	}
-    	else
-    	{
-    		$('#join_frm').submit();
-    	}
-    	/*
-    	else if($("#pwd_1").val() == "")
-    	{   
-    		$('#jPrint').text("비밀번호를 입력해 주세요");
-			$('#jPrint').css("color","red");
-    		$('#pwd_1').focus();
-    		return false;
-    	}
-    	else if($("#pwd").val() == "")
-    	{   
-    		$('#jPrint').text("비밀번호 재확인을 입력해 주세요");
-			$('#jPrint').css("color","red");
-    		$('#pwd').focus();
-    		return false;
-    	}
-    	else if($("#name").val() == "")
-    	{   
-    		$('#jPrint').text("이름을 입력해 주세요");
-			$('#jPrint').css("color","red");
-    		$('#name').focus();
-    		return false;
-    	}
-    	else if($("#sex").val() != "남성" && $("#sex").val() != "여성")
-    	{   
-    		$('#jPrint').text("성별을 선택해 주세요");
-			$('#jPrint').css("color","red");
-    		$('#sex').focus();
-    		return false;
-    	}
-    	else if($("#birthday").val() == "")
-    	{   
-    		$('#jPrint').text("생년월일을 선택해 주세요");
-			$('#jPrint').css("color","red");
-    		$('#birthday').focus();
-    		return false;
-    	}
-    	else if($("#email").val() == "")
-    	{   
-    		$('#jPrint').text("이메일을 입력해 주세요");
-			$('#jPrint').css("color","red");
-    		$('#email').focus();
-    		return false;
-    	}
-    	else if($("#tel").val() == "")
-    	{   
-    		$('#jPrint').text("전화번호를 입력해 주세요");
-			$('#jPrint').css("color","red");
-    		$('#tel').focus();
-    		return false;
-    	}
-    	else if($("#icheck").val() !== '확인')
-    	{   
-    		$('#jPrint').text("체크를 확인해 주세요");
-			$('#jPrint').css("color","red");
-    		return false;
-    	}
-    	else if($("#pcheck").val() !== '확인')
-    	{   
-    		$('#jPrint').text("체크를 확인해 주세요");
-			$('#jPrint').css("color","red");
-    		return false;
-    	}
-    	else if($("#echeck").val() !== '확인')
-    	{   
-    		$('#jPrint').text("체크를 확인해 주세요");
-			$('#jPrint').css("color","red");
-    		return false;
-    	}
-    	else if($("#tcheck").val() !== '확인')
-    	{   
-    		$('#jPrint').text("체크를 확인해 주세요");
-			$('#jPrint').css("color","red");
-    		return false;
-    	}
-    	*/
-    	/*
-    	if ($("#icheck").val() != "확인" || $("#pcheck").val() != "확인" || $("#echeck").val() != "확인"  $("#tcheck").val() != "확인" )
-    	{
-    		
-    		return false;
-    	}
-    	else if($("#icheck").val() == "확인" && $("#pcheck").val() == "확인" && $("#echeck").val() == "확인" && $("#tcheck").val() == "확인")
-    	{
-    		$('#join_frm').submit();
-    	}
-    */
     	
-    	
+    	else if($("#icheck").text() != '확인' || $("#pcheck").text() != '확인' || $("#echeck").text() != '확인' || $("#tcheck").text() != '확인')
+    	{
+    			$('#jPrint').text("모든 확인을 확인해주세요");
+    			$('#jPrint').css("color","red");
+        		return;
+
+    	}
+
     })
      
-    	
-    	
-    	
-    	
-     
-    	
-    	
-    	
-    	
-    	
-    
-    	
-    	
-    	
-    	
-    	
-    	
-    	
-    	
-    	
-    	
 
-    		
 })<%-- 마무리 태그 --%>
 
 </script>
@@ -343,6 +248,7 @@ $(function(){
 			  <h4 class="font_title">전화번호&nbsp;&nbsp;<%-- 전화번호 확인 --%><button type="button" class="btn btn-success" id=telBtn>전화번호확인</button>&nbsp;<span id="tcheck"></span></h4>
 			  <input class="form-control text-center" type="text" id=tel name="tel" size=35 placeholder="-를 사용하여 전화번호를 입력하세요"><div style="margin-top:10px;"><span id="tPrint"></span></div><br>
 			  <br>
+			  
 <%-------------------------------------------------------------------------------------------------------------------------------%>
 <%-------------------------------------------------------------------------------------------------------------------------------%>
 <%-------------------------------------------------------------------------------------------------------------------------------%>
@@ -353,11 +259,11 @@ $(function(){
 			    <br>
 			    <div style="margin-top:10px;"><span id="jPrint" id=""></span></div>
 			  </div>
-    </div>
-    </form>
-    </div>
-    </div>
-    </div>
+			 </div>
+			</form>
+   </div>
+   </div>
+   </div>
 <%-------------------------------------------------------------------------------------------------------------------------------%>
 <%-------------------------------------------------------------------------------------------------------------------------------%>
 <%-------------------------------------------------------------------------------------------------------------------------------%>      

@@ -2,25 +2,38 @@ package com.sist.web;
 
 
 
+
+import org.apache.ibatis.binding.MapperProxy;
+import org.apache.ibatis.io.Resources;
+import org.apache.ibatis.session.SqlSession;
+import org.apache.ibatis.session.SqlSessionFactory;
+import org.apache.ibatis.session.SqlSessionFactoryBuilder;
+import org.apache.taglibs.standard.tag.common.core.RemoveTag;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
+import org.springframework.test.context.web.WebAppConfiguration;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+
 import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import java.util.*;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.delete;
 
-import javax.servlet.http.Cookie;
+import java.io.Reader;
+import java.util.HashMap;
+import java.util.Map;
+
+import javax.servlet.ServletRequest;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.sist.dao.*;
+import com.sist.mapper.MemberMapper;
 import com.sist.vo.*;
 
 @Controller
@@ -30,7 +43,9 @@ public class MemberController {
 	
 	@Autowired
 	private BCryptPasswordEncoder encoder;
-	   
+	
+
+
 	   //회원가입
 	   @GetMapping("member/join.do")
 	   public String member_join(Model model)
@@ -113,9 +128,9 @@ public class MemberController {
 		   }
 		   return result;	   
 		}
-	   
+	   //로그인
 	   @GetMapping("member/login.do")
-	   public String seoul_login()
+	   public String login()
 	   {
 		   return "member/login";
 	   }
@@ -127,26 +142,15 @@ public class MemberController {
 	   }
 	   
 	   //아이디 찾기
-	   @GetMapping("member/idfind.do")
-	   public String idfind(Model model)
-	   {
-		   model.addAttribute("main_jsp", "../member/idfind.jsp");
-		   return "member/idfind";
-	   }
-	   @GetMapping("member/telfind_ok.do")
-	   @ResponseBody
-	   public String telfind_ok(Model model)
-	   {
-		   model.addAttribute("main_jsp", "../member/telfind_ok.jsp");
-		   return "member/telfind_ok";
-	   }
-		   
+	  
+	 
+	  
 	  //회원정보 수정
 	   @GetMapping("member/join_before.do")
-	   public String member_before(Model model)
+	   public String member_before()
 	   {
-	        model.addAttribute("main_jsp", "../member/join_before.jsp");
-	        return "member/join_before";
+	      
+	        return "mypage/join_before";
 	   }
 	   @GetMapping("member/join_before_ok.do")
 	   @ResponseBody
@@ -172,12 +176,14 @@ public class MemberController {
 		   MemberVO vo=dao.memberUpdateData(id);
 		   model.addAttribute("vo", vo);
 		   model.addAttribute("main_jsp", "../member/join_update.jsp");
-		   return "member/join_update";
+		   return "mypage/join_update";
 	   }
 	   @PostMapping("member/join_update_ok.do")
 	   public String join_update_ok(MemberVO vo,HttpSession session)
 	   {
 		
+		   System.out.println(vo.getId());
+		   System.out.println(vo.getName());
 		   
 		   //DB연동 
 		   dao.memberUpdate(vo);
@@ -185,17 +191,17 @@ public class MemberController {
 		   return "redirect:../main/main.do";
 	   }
 	   
-	   /*
+	 
 	 //회원정보 탈퇴
-	   @GetMapping("member/join_delete.do")
-	   public String member_delete(Model model)
+	   @GetMapping("member/memberDelete.do")
+	   public String memberDelete()
 	   {
-	        model.addAttribute("main_jsp", "../member/join_delete.jsp");
-	        return "member/join_delete";
+	      
+	        return "mypage/memberDelete";
 	   }
-	   @GetMapping("member/join_delete_ok.do")
+	   @GetMapping("member/member_ok.do")
 	   @ResponseBody
-	   public String join_delete_ok(String pwd,HttpSession session)
+	   public String member_ok(String pwd,HttpSession session)
 	   {
 		   String id=(String)session.getAttribute("id");
 		   String result="";
@@ -210,30 +216,13 @@ public class MemberController {
 		   }
 		   return result;
 	   }
-	   @GetMapping("member/join_delete_check.do")
-	   public String join_delete_check(MemberVO vo,Model model,HttpSession session)
+	   @GetMapping("member/Delete.do")
+	   public void Delete(Model model,HttpSession session)
 	   {
 		   String id=(String)session.getAttribute("id");
-		   dao.memberDelete(vo);
-		   model.addAttribute("main_jsp", "../member/join_delete_check.jsp");
-		   return "member/join_delete_check";
+	       dao.memberDelete(id);
+	       session.invalidate();
 	   }
-	   @PostMapping("member/join_delete_check_ok.do")
-	   public String join_delete_check_ok(MemberVO vo,HttpSession session)
-	   {
-		
-		   
-		   //DB연동 
-		   dao.memberDelete(vo);
-		   session.setAttribute("name", vo.getName());
-		   return "redirect:../main/main.do";
-		   
-	   }
-	   */
-	   
-	   
-	   
-	   
 	  
 	
 }
