@@ -21,7 +21,7 @@ public class CourseRestController {
 		String result = "";
 		String id = (String)session.getAttribute("id");
 		List<CourseVO> list = service.courseListData(id);
-		System.out.println(list.size());
+		
 		JSONArray arr = new JSONArray();
 		for(CourseVO vo : list) {
 			JSONObject obj = new JSONObject();
@@ -42,7 +42,17 @@ public class CourseRestController {
 		vo.setRday(rday);
 		
 		List<CourseVO> list = service.courseDetailData(vo);
+		String addrs = "";
+		String titles = "";
 		JSONArray arr = new JSONArray();
+		int k = 0;
+		for(CourseVO cvo : list) {
+			addrs += cvo.getAddr() + "^";
+			titles += cvo.getPlace() + "^";
+		}
+		addrs = addrs.substring(0, addrs.length()-1);
+		titles = titles.substring(0, titles.length()-1);
+		
 		for(CourseVO cvo : list) {
 			JSONObject obj = new JSONObject();
 			obj.put("no", cvo.getNo());
@@ -50,11 +60,22 @@ public class CourseRestController {
 			obj.put("place", cvo.getPlace());
 			obj.put("addr", cvo.getAddr());
 			obj.put("inwon", cvo.getInwon());
-			obj.put("regdate", cvo.getRegdate());
+			if(k == 0) {
+				obj.put("addrs", addrs);
+				obj.put("titles", titles);
+			}
 			arr.add(obj);
+			k++;
 		}
+		System.out.println(addrs);
 		result = arr.toJSONString();
 		
 		return result;
 	}
+	
+	@GetMapping(value = "mypage/my_course_delete.do", produces = "text/plain;charset=UTF-8")
+	public void mypage_mycourse_delete(int no) {
+		service.courseDeleteData(no);
+	}
+	
 }

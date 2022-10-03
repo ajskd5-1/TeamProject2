@@ -21,4 +21,7 @@ public class CourseDAO {
 	public List<CourseVO> courseDetailData(CourseVO vo){
 		return mapper.courseDetailData(vo);
 	}
+	public void courseDeleteData(int no) {
+		mapper.courseDeleteData(no);
+	}
 }

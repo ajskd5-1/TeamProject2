@@ -1,5 +1,6 @@
 package com.sist.mapper;
 
+import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.SelectKey;
@@ -20,4 +21,9 @@ public interface CourseMapper {
 	@Select("SELECT no, rday, place, addr, inwon, regdate "
 			+ "FROM course_1_2 WHERE id=#{id} AND rday=#{rday} ORDER BY no DESC")
 	public List<CourseVO> courseDetailData(CourseVO vo);
+	// 코스 삭제
+	@Delete("DELETE FROM course_1_2 WHERE no=#{no}")
+	public void courseDeleteData(int no);
+	
+	
 }

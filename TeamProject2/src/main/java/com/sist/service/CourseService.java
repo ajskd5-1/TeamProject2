@@ -8,4 +8,5 @@ public interface CourseService {
 	public void courseInsertData(CourseVO vo);
 	public List<CourseVO> courseListData(String id);
 	public List<CourseVO> courseDetailData(CourseVO vo);
+	public void courseDeleteData(int no);
 }

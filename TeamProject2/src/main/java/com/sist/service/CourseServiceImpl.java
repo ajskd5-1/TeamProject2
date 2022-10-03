@@ -27,5 +27,10 @@ public class CourseServiceImpl implements CourseService{
 	public List<CourseVO> courseDetailData(CourseVO vo) {
 		return dao.courseDetailData(vo);
 	}
+
+	@Override
+	public void courseDeleteData(int no) {
+		dao.courseDeleteData(no);
+	}
 	
 }
