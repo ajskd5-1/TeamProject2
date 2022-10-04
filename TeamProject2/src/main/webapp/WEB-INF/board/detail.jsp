@@ -9,7 +9,7 @@
 <style type="text/css">
 div.container.boardContainer{
   width: 960px;
-  height: 1200px;
+  height: 2000px;
   margin: 0px auto;
 }
 .table {
@@ -36,6 +36,49 @@ td{
 </style>
 <script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>
 <script type="text/javascript">
+let u=0;
+$(function(){
+	$('#insertBtn').click(function(){
+		var id='<%=(String)session.getAttribute("id")%>';
+		if(id==="null")
+		{
+			alert("로그인 후 작성 가능합니다.")
+			return;
+		}
+		else
+		{
+			$('#frmin').submit();
+		}
+	})
+	$('#updateBtn').click(function(){
+		let upmsg=$('#upmsg').val();
+		if(upmsg.trim()==="")
+		{
+			$('#upmsg').focus();
+			return;
+		}
+		else
+		{
+			$('#frmup').submit();
+		}
+	})
+	$('.up').click(function(){
+		$('.breplyupdate').hide();
+		let no=$(this).attr("data-no");
+		if(u==0)
+		{
+			$('#br'+no).show();
+			$(this).text("취소");
+			u=1;
+		}
+		else
+		{
+			$('#br'+no).hide();
+			$(this).text("수정");
+			u=0;
+		}
+	})
+})
 </script>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.min.js"></script>
@@ -85,89 +128,74 @@ td{
         <tr>
           <td colspan="4" class="text-right">
            <c:if test="${sessionScope.id==vo.name }">
-            <a href="update.do?no=${vo.no }" class="btn btn-xs btn-info">수정</a>
-            <a href="delete.do?no=${vo.no }" class="btn btn-xs btn-warning">삭제</a>
+            <a href="update.do?no=${vo.no }" class="btn btn-sm btn-info">수정</a>
+            <a href="delete.do?no=${vo.no }" class="btn btn-sm btn-warning">삭제</a>
            </c:if>
-            <a href="list.do" class="btn btn-xs btn-success">목록</a>
+            <a href="list.do" class="btn btn-sm btn-success">목록</a>
           </td>
         </tr>
       </table>
  	  <div class="text-left">
-	       <div class="prev font_title">
+	       <div class="prev">
 	         <c:forEach items="${plist }" var="plist" end="0">
 	         	  이전글 &nbsp;&nbsp; <a href="../board/detail.do?no=${plist.no }">${plist.subject }_${plist.no }</a>
 	         </c:forEach>
 	       </div>
         <hr>
-	       <div class="next font_title" style="background-color: inherit;">
+	       <div class="next" style="background-color: inherit;">
 	         <c:forEach items="${nlist }" var="nlist" end="0">
 	         	  다음글 &nbsp;&nbsp; <a href="../board/detail.do?no=${nlist.no }">${nlist.subject }_${nlist.no }</a>
 	         </c:forEach>
 	       </div>
       </div>
-      <br>
-      <div class="comments">
-       <table>
-            <c:forEach items="" var="rvo">
-              <hr>
-              <div id="comment-1" class="comment" style="text-align: right; margin: 0px;">
-                <c:forEach begin="1" end=""><span style="color:#f1c40f; margin-right: 4px; font-size: 18pt;">★</span></c:forEach></div>
-              <div id="comment-2" class="comment" style="margin: 0px;">
-                <div class="d-flex" style="margin-bottom: 15px;">
-                  <div class="comment-img"><img src="../recipe/image/chef1.png" style="margin:5px 30px 20px 20px; height: 70px; width: 70px; "></div>
-                  <div>
-                    <h5 style="font-size:15pt; margin-bottom: 5px; font-style: italic; font-weight: bold; color: gray;"></h5>
-                    <h5 style="font-size:13pt; margin-bottom: 8px; color: gray;"> <fmt:formatDate value="" pattern="yyyy-MM-dd HH:mm:ss"></fmt:formatDate></h5>
-                    <p style="font-size:14pt; font-weight: bold;">
-                      
-                    </p>
-                    <c:if test="">
-                    <div class="button">
-                      <input type="button" class="btn btn-primary" style=" border: none;" value="삭제" 
-                    	onclick="location.href='../recipe/recipe_review_delete.do?re_no=${rvo.re_no}&cr_no=${vo.cr_no }'">
-                      <input id="updateBtn" type="button" class="btn btn-primary" style="background-color: #528e5b; border: none; margin-left: " value="수정"><br>
-                    	<div id ="update_tr" class="button" style="margin: 20px 0px; display:none;" >
-                    	   <form method="post" id="update_frm" action="../recipe/recipe_review_update.do?re_no=${rvo.re_no}&cr_no=${vo.cr_no }" >
-                    		 <input id="update_msg" name="update_msg" type="text" class="form-control" value="${rvo.re_msg}"> 
-                    	   </form>
-                    	<button type="submit" id="update_ok_Btn" class="btn btn-primary" style="background-color: #e7c04c;margin-top: 10px;border: none">수정하기</button>
-                    	<button type="submit" id="update_no_Btn" class="btn btn-primary" style="background-color: #fff;margin-top: 10px; color: black;">취소</button>
-                    	</div>
-                    </div>	
-                    </c:if>
-                  </div>
-                </div>
-              </div><!-- End comment #1 -->
-             </c:forEach>
-             <br>
-              <br>
-         <!-- 후기 작성 -->
-             <div class="reply-form">
-               <h4 class="title">후기 작성</h4><br>
-               <div class="star">
-				<span style="font-size: 14pt; font-weight: bold;">별점 : </span><select id="selectStar" class="selectStar" name="selectStar" >
-					<option value="1"> ★ </option>
-					<option value="2"> ★ ★ </option>
-					<option value="3"> ★ ★ ★ </option>
-					<option value="4"> ★ ★ ★ ★ </option>
-					<option value="5"> ★ ★ ★ ★ ★ </option>
-				</select> 
-			</div>
-               <form method="post" action="../recipe/recipe_review_ok.do" name="review_frm" id="review_frm">
-                 <div class="row" style="margin-top: 20px;">
-                   <div class="col form-group" >
-                     <input type="text"  id="re_msg" name="re_msg" class="form-control" placeholder="레시피 후기를 자유롭게 작성해주세요. 별점은 레시피 평가를 위해 사용됩니다.">
-                   </div>
-                     <input id="re_score" name="re_score" value="1" type="hidden">
-                     <input id="re_tno" name="re_tno" value="" type="hidden" >
-                     <input id="re_tno" name="re_type" value="1" type="hidden"><!-- type 1은 레시피예요, type 숫자 정해서 value="?" 물음표에 숫자 넣어주시면 됩니다.  -->
-                 </div>
-              </form>
-                 <button type="submit" id="reviewBtn" class="btn btn-primary" style="background-color: #0ea2bd">작성하기</button>
-             </div>
-         </table>
-       </div>
-
+    <div class="row row1">
+      <div id="comments">
+        <h3 class="font_title">&nbsp;게시판 댓글&nbsp;<img src="https://img.icons8.com/color/48/000000/enter-key.png"/></h3><br>
+        <ul>
+         <c:forEach var="rvo" items="${rlist }">
+          <li>
+            <article>
+              <header>
+                <figure class="avatar"><img src="../images/demo/avatar.png" alt=""></figure>
+                <address>
+                By ${rvo.name }
+                </address>
+                ${rvo.dbday }
+              </header>
+              <div class="comcont">
+                <p style="color: #161392; font-size:13pt;">${rvo.msg }</p>
+              </div>
+              <div class="text-right">
+                   <c:if test="${sessionScope.id==rvo.id }">
+                     <span class="btn btn-sm up" data-no="${rvo.no }">수정</span>
+                     <a href="../breply/delete.do?no=${rvo.no }&cno=${vo.no}" class="btn btn-sm">삭제</a>
+                   </c:if>
+                 <div class="breplyupdate" id="br${rvo.no }" style="margin-top: 10px; display: none"  >
+                     <form action="../breply/update.do" method="post" id="frmup">
+			          <div class="block clear">
+			            <textarea name="msg" id="upmsg" cols="25" rows="3">${rvo.msg }</textarea>
+			            <input type="hidden" name="no" value="${rvo.no }">
+			            <input type="hidden" name="cno" value="${vo.no }">
+			          </div>
+			        </form>
+			      <input type="submit" name="submit" id="updateBtn" class="btn btn-sm" value="수정하기">
+			     </div>
+              </div>
+            </article>
+          </li>
+         </c:forEach>
+        </ul>
+        <form action="../breply/insert.do" method="post" id="frmin">
+          <div class="block clear">
+            <textarea name="msg" id="msg" cols="25" rows="8"></textarea>
+            <input type="hidden" name="cno" value="${vo.no }">
+          </div>
+        </form>
+          <div>
+            <input type="submit" name="submit" id="insertBtn" value="댓글 작성">
+          </div>
+      </div>
+    </div>
     </div>
 </body>
 </html>

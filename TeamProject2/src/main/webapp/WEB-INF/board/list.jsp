@@ -72,7 +72,7 @@ $(function(){
 <body>
   <div class="container boardContainer">
       <h1 class="text-center font_title">자유게시판</h1>
-      <h4 class="text-right"><a href="../chat/chat.do"><img src="https://img.icons8.com/arcade/64/000000/experimental-chat-arcade.png">실시간 채팅</a></h4>
+      <h4 class="text-right"><a href="../chat/chat.do">채팅<img src="https://img.icons8.com/external-parzival-1997-outline-color-parzival-1997/64/000000/external-reply-message-seo-and-digital-marketing-parzival-1997-outline-color-parzival-1997.png"/></a></h4>
       <br>
       <form action="find.do" method="post" id="frm">
       <table class="Search">

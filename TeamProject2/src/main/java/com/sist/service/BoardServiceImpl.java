@@ -85,4 +85,16 @@ public class BoardServiceImpl implements BoardService {
 		return dao.boardNextData(no);
 	}
 
+	@Override
+	public void recountIncrement(int no) {
+		// TODO Auto-generated method stub
+		dao.recountIncrement(no);
+	}
+
+	@Override
+	public void recountdecrement(int no) {
+		// TODO Auto-generated method stub
+		dao.recountdecrement(no);
+	}
+
 }

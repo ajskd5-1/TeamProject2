@@ -23,12 +23,16 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.sist.vo.*;
+import com.sist.dao.BoardReplyDAO;
 import com.sist.service.BoardService;
 
 @Controller
 public class BoardController {
 	@Autowired
     private BoardService service;
+	
+	@Autowired
+	private BoardReplyDAO dao;
 	
 	@GetMapping("board/list.do")
 	public String board_list()
@@ -125,6 +129,11 @@ public class BoardController {
 		model.addAttribute("plist",plist);
 		List<BoardVO> nlist=service.boardNextData(no);
 		model.addAttribute("nlist",nlist);
+		
+		BoardReplyVO rvo=new BoardReplyVO();
+		rvo.setCno(no);
+		List<BoardReplyVO> rlist=dao.breplyListData(rvo);
+		model.addAttribute("rlist",rlist);
 		
 		return "board/detail";
 	}

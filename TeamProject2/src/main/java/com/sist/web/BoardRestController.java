@@ -9,11 +9,11 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 import java.util.*;
 import com.sist.vo.*;
-import com.sist.dao.*;
+import com.sist.service.BoardService;
 @RestController
 public class BoardRestController {
 	@Autowired
-	private BoardDAO dao;
+	private  BoardService service;
 	@GetMapping(value = "board/list_vue.do",produces = "text/plain;charset=utf-8")
 	public String board_list_vue(String page)
 	{
@@ -28,8 +28,8 @@ public class BoardRestController {
 		map.put("start", start);
 		map.put("end", end);
 		
-		List<BoardVO> list=dao.boardListData(map);
-		int totalpage=dao.boardTotalpage();
+		List<BoardVO> list=service.boardListData(map);
+		int totalpage=service.boardTotalpage();
 		// list로 데이터 전송
 		String result="";
 		try

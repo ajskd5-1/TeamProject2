@@ -56,10 +56,11 @@
           </article>
         </li>
         <li class="one_quarter">
-          <article><a href="#"><i class="fas fa-wine-glass"></i></a>
-            <h6 class="heading">Facilisis</h6>
-            <p>Cras tempor ultricies urna aliquam massa sapien posuere in iaculis adipiscing vulputate</p>
-            <footer><a class="btn" href="#">More Details</a></footer>
+          <article><a href="#"><img src="https://img.icons8.com/color/80/000000/noticeboard.png" style="margin-bottom: 10px;"/></a>
+            <h6 class="heading font_title">자유게시판</h6>
+            <p>제주도와 관련된 다양한 글을 올리고<br>
+            	댓글과 채팅으로 소통하는 공간입니다.</p>
+            <footer><a class="btn" href="../board/list.do">자유게시판 더보기</a></footer>
           </article>
         </li>
       </ul>

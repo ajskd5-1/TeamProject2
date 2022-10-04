@@ -20,5 +20,7 @@ public interface BoardService {
 	public void boardNoticeInsert(BoardVO vo);
 	public List<BoardVO> boardPrevData(int no);
 	public List<BoardVO> boardNextData(int no);
+	public void recountIncrement(int no);
+	public void recountdecrement(int no);
 	
 }

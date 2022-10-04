@@ -70,4 +70,14 @@ public class BoardDAO {
 	{
 		return mapper.boardNextData(no);
 	}
+	
+	public void recountdecrement(int no)
+	{
+		mapper.recountdecrement(no);
+	}
+	
+	public void recountIncrement(int no)
+	{
+		mapper.recountIncrement(no);
+	}
 }
