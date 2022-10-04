@@ -17,6 +17,9 @@ public class MainDAO {
 	public List<LocationVO> main_location() {
 		return mapper.main_location();
 	}
+	public List<FoodVO> main_food(){
+		return mapper.main_food();
+	}
 	
 	// 검색
 //	@Select("SELECT no, title, poster, num "

@@ -6,8 +6,17 @@ import com.sist.vo.*;
 
 public interface MainMapper {
 	// 메인 추천
-	@Select("SELECT no, title, poster, addr, rownum FROM jeju_location_1_2 WHERE rownum<=6")
+	@Select("SELECT no, title, poster, addr, hit, num " + 
+			"FROM (SELECT no, title, poster, addr, hit, rownum as num " + 
+			"from (SELECT no, title, poster, addr, hit " + 
+			"FROM jeju_location_1_2 ORDER BY hit DESC)) WHERE num <= 6")
 	public List<LocationVO> main_location();
+	@Select("SELECT no, title, poster, addr, hit, num " + 
+			"FROM (SELECT no, title, poster, addr, hit, rownum as num " + 
+			"from (SELECT no, title, poster, addr, hit " + 
+			"FROM jeju_food_1_2 ORDER BY hit DESC)) WHERE num <= 6")
+	public List<FoodVO> main_food();
+	
 	
 	// 검색
 	@Select("SELECT no, title, poster, addr, num "

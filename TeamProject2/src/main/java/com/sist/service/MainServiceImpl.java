@@ -15,6 +15,10 @@ public class MainServiceImpl implements MainService{
 	public List<LocationVO> main_location() {
 		return dao.main_location();
 	}
+	@Override
+	public List<FoodVO> main_food() {
+		return dao.main_food();
+	}
 
 	@Override
 	public List<LocationVO> search_search(Map map) {

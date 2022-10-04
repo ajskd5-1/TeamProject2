@@ -12,18 +12,6 @@
 </head>
 <body>
   <div class="container">
-    <!-- <div class="row">
-      <form class="inline text-center" method="post" action="../search/search.do">
-      <select name="type" id="type" style="color: black; width: 60px; height: 30px">
-	    <option value="no">선택</option>
-		<option value="location">관광지</option>
-	    <option value="food">맛집</option>
-	    <option value="board">게시판</option>
-	  </select>
-	  <input type="text" class="input-md" style="color:black; height:30px;" name="ss">
-	  <input type="submit" class="btn btn-md btn-info" value="검색">
-    </form>
-    </div> -->
     <div style="height: 20px;"></div>
     <div class="row">
       <h1>{{ty}} : ${ss }</h1>

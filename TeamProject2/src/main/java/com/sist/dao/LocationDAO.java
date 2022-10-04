@@ -35,6 +35,7 @@ public class LocationDAO {
 			 +"WHERE no=#{no}")*/
 	 public LocationVO LocationDetailData(int no)
 	 {
+		 mapper.locationHitIncrement(no);
 		 return mapper.locationDetailData(no);
 	 }
 }

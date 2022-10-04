@@ -13,6 +13,7 @@ import com.sist.manager.*;
 import java.util.*;
 import com.sist.vo.*;
 import javax.servlet.http.HttpServletRequest;
+import com.sist.dao.*;
 
 @Component
 @Aspect
@@ -20,12 +21,15 @@ public class NewsAspect {
 	@Autowired
 	private NewsManager mgr;
 	
+	@Autowired
+	private MainDAO dao;
+	
 	@Before("execution(* com.sist.web.*Controller.*(..))")
 	public void footer() {
 		try {
 			HttpServletRequest request = ((ServletRequestAttributes)RequestContextHolder.getRequestAttributes()).getRequest();
 			
-			String json = mgr.newsFind("신상품");
+			String json = mgr.newsFind("제주도");
 			JSONParser jp = new JSONParser();
 			JSONObject obj = (JSONObject)jp.parse(json);
 			JSONArray arr = (JSONArray)obj.get("items");
@@ -37,6 +41,20 @@ public class NewsAspect {
 				vo.setLink((String)o.get("link"));
 				nList.add(vo);
 			}
+			List<LocationVO> lList = dao.main_location();
+			for(LocationVO vo : lList) {
+				vo.setTitle(vo.getTitle().substring(0, 3) + "...");
+			}
+			
+			List<FoodVO> fList = dao.main_food();
+			for(FoodVO fvo : fList) {
+				if(fvo.getTitle().length() > 3) {
+					fvo.setTitle(fvo.getTitle().substring(0, 3) + "...");
+				}
+			}
+			
+			request.setAttribute("locationList", lList);
+			request.setAttribute("foodList", fList);
 			request.setAttribute("newList", nList);
 		} catch (Exception e) {
 			e.printStackTrace();

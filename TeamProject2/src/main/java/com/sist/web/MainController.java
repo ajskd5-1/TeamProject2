@@ -20,8 +20,10 @@ public class MainController {
 	@GetMapping("main/main.do")
 	public String main_main(Model model) {
 		List<LocationVO> list = service.main_location();
+		List<FoodVO> flist = service.main_food();
 		List<BoardVO> blist=service.boardTopData();
 		model.addAttribute("list", list);
+		model.addAttribute("flist", flist);
 		model.addAttribute("blist", blist);
 		return "main";
 	}

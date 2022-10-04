@@ -25,6 +25,7 @@ public class FoodDAO {
 	 }
 	 public FoodVO foodDetailData(int no)
 	 {
+		 mapper.foodHitIncrement(no);
 		 return mapper.foodDetailData(no);
 	 }
 	

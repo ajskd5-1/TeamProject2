@@ -12,40 +12,43 @@
     <!-- ################################################################################################ -->
     <div class="group btmspace-80">
       <div class="one_third first">
-        <h6 class="heading">Non erat varius lacinia</h6>
-        <p>Morbi tincidunt in hac habitasse platea dictumst praesent pretium donec tincidunt laoreet diam nullam augue.</p>
-        <p class="btmspace-30">Tortor rhoncus sed dictum vitae viverra posuere lorem pellentesque suscipit eros vel ante curabitur pretium [<a href="#"><i class="fas fa-arrow-right"></i></a>]</p>
-        <ul class="faico clear">
-          <li><a class="faicon-dribble" href="#"><i class="fab fa-dribbble"></i></a></li>
-          <li><a class="faicon-facebook" href="#"><i class="fab fa-facebook"></i></a></li>
-          <li><a class="faicon-google-plus" href="#"><i class="fab fa-google-plus-g"></i></a></li>
-          <li><a class="faicon-linkedin" href="#"><i class="fab fa-linkedin"></i></a></li>
-          <li><a class="faicon-twitter" href="#"><i class="fab fa-twitter"></i></a></li>
-          <li><a class="faicon-vk" href="#"><i class="fab fa-vk"></i></a></li>
-        </ul>
+        <h1 class="font_title" style="color: white; margin-top: -5px;">실시간 제주도 뉴스</h1>
+        <ol type="1">
+          <c:forEach var="vo" items="${newList }" varStatus="s">
+            <li><a href="${vo.link }" target="_blank" style="color: yellow;">${vo.title }</a></li>
+            <br>
+          </c:forEach>
+        </ol>
       </div>
       <div class="one_third">
-        <h6 class="heading">Enim et mauris quisque vitae</h6>
-        <p class="nospace btmspace-15">Libero class aptent taciti sociosqu ad litora torquent per conubia nostra.</p>
-        <form method="post" action="#">
-          <fieldset>
-            <legend>Newsletter:</legend>
-            <input class="btmspace-15" type="text" value="" placeholder="Name">
-            <input class="btmspace-15" type="text" value="" placeholder="Email">
-            <button type="submit" value="submit">Submit</button>
-          </fieldset>
-        </form>
+      <h1 class="font_title" style="color: white; margin-top: -5px;">추천 관광지</h1>
+        <c:forEach var="vo" items="${locationList }">
+        <div class="col-md-4">
+	      <div class="thumbnail">
+	        <a href="#">
+	          <img src="${vo.poster }" alt="Lights" style="width:100%">
+	          <div class="caption">
+	            <p>${vo.title }</p>
+	          </div>
+	        </a>
+	      </div>
+	    </div>
+	    </c:forEach>
       </div>
       <div class="one_third">
-        <h6 class="heading">Per inceptos himenaeos</h6>
-        <ul class="nospace clear latestimg">
-          <li><a class="imgover" href="#"><img src="../images/demo/100x100.png" alt=""></a></li>
-          <li><a class="imgover" href="#"><img src="../images/demo/100x100.png" alt=""></a></li>
-          <li><a class="imgover" href="#"><img src="../images/demo/100x100.png" alt=""></a></li>
-          <li><a class="imgover" href="#"><img src="../images/demo/100x100.png" alt=""></a></li>
-          <li><a class="imgover" href="#"><img src="../images/demo/100x100.png" alt=""></a></li>
-          <li><a class="imgover" href="#"><img src="../images/demo/100x100.png" alt=""></a></li>
-        </ul>
+      <h1 class="font_title" style="color: white; margin-top: -5px;">추천 맛집</h1>
+        <c:forEach var="fvo" items="${foodList }">
+        <div class="col-md-4">
+	      <div class="thumbnail">
+	        <a href="#">
+	          <img src="${fvo.poster }" alt="Lights" style="width:100%; height: 75.99px;">
+	          <div class="caption">
+	            <p>${fvo.title }</p>
+	          </div>
+	        </a>
+	      </div>
+	    </div>
+	    </c:forEach>
       </div>
     </div>
     <!-- ################################################################################################ -->
@@ -67,17 +70,6 @@
     </div>
     <!-- ################################################################################################ -->
   </footer>
-</div>
-<!-- ################################################################################################ -->
-<!-- ################################################################################################ -->
-<!-- ################################################################################################ -->
-<div class="wrapper row5">
-  <div id="copyright" class="hoc clear"> 
-    <!-- ################################################################################################ -->
-    <p class="fl_left">Copyright &copy; 2018 - All Rights Reserved - <a href="#">Domain Name</a></p>
-    <p class="fl_right">Template by <a target="_blank" href="https://www.os-templates.com/" title="Free Website Templates">OS Templates</a></p>
-    <!-- ################################################################################################ -->
-  </div>
 </div>
 <!-- ################################################################################################ -->
 <!-- ################################################################################################ -->
