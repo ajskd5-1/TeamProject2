@@ -43,7 +43,9 @@ public class NewsAspect {
 			}
 			List<LocationVO> lList = dao.main_location();
 			for(LocationVO vo : lList) {
-				vo.setTitle(vo.getTitle().substring(0, 3) + "...");
+				if(vo.getTitle().length() > 3) {
+					vo.setTitle(vo.getTitle().substring(0, 3) + "...");
+				}
 			}
 			
 			List<FoodVO> fList = dao.main_food();

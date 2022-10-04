@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<!DOCTYPE html>
+d<!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
@@ -15,20 +15,20 @@
         <h1 class="font_title" style="color: white; margin-top: -5px;">실시간 제주도 뉴스</h1>
         <ol type="1">
           <c:forEach var="vo" items="${newList }" varStatus="s">
-            <li><a href="${vo.link }" target="_blank" style="color: yellow;">${vo.title }</a></li>
+            <li><a href="#" target="_blank" style="color: yellow;">${vo.title }</a></li>
             <br>
           </c:forEach>
         </ol>
       </div>
       <div class="one_third">
       <h1 class="font_title" style="color: white; margin-top: -5px;">추천 관광지</h1>
-        <c:forEach var="vo" items="${locationList }">
+        <c:forEach var="lvo" items="${locationList }">
         <div class="col-md-4">
 	      <div class="thumbnail">
 	        <a href="#">
-	          <img src="${vo.poster }" alt="Lights" style="width:100%">
+	          <img src="${lvo.poster }" alt="Lights" style="width:100%">
 	          <div class="caption">
-	            <p>${vo.title }</p>
+	            <p>${lvo.title }</p>
 	          </div>
 	        </a>
 	      </div>
