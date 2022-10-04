@@ -21,19 +21,6 @@
       <nav id="mainav" class="fl_right">
         <ul class="clear">
           <li class="active"><a href="../main/main.do" class="font_title">Home</a></li>
-          <li><a class="drop" href="#">Dropdown</a>
-            <ul>
-              <li><a href="#">Level 2</a></li>
-              <li><a class="drop" href="#">Level 2 + Drop</a>
-                <ul>
-                  <li><a href="#">Level 3</a></li>
-                  <li><a href="#">Level 3</a></li>
-                  <li><a href="#">Level 3</a></li>
-                </ul>
-              </li>
-              <li><a href="#">Level 2</a></li>
-            </ul>
-          </li>
           <li><a href="../location/location_list.do">관광지</a></li>
           <li><a href="../food/food_list.do">맛집</a></li>
           <li><a href="../board/list.do">자유게시판</a></li>
