@@ -36,18 +36,17 @@
           </article>
         </li>
         <li class="one_quarter">
-          <article><a href="../course/course.do"><i class='fas fa-map-marked-alt' style='font-size:36px'></i></a>
-            <h4 class="heading font_title">코스짜기</h4>
-            <p>수정하기</p>
-            <footer><a class="btn" href="../course/course.do">More Details</a></footer>
+          <article><a href="#"><i class="fas fa-tablets"></i></a>
+            <h6 class="heading">Himenaeos</h6>
+            <p>Ac vestibulum rutrum orci augue iaculis nibh quis porta nunc nisi suscipit leo nam ac lacus</p>
+            <footer><a class="btn" href="#">More Details</a></footer>
           </article>
         </li>
         <li class="one_quarter">
-          <article><a href="#"><img src="https://img.icons8.com/color/80/000000/noticeboard.png" style="margin-bottom: 10px;"/></a>
-            <h6 class="heading font_title">자유게시판</h6>
-            <p>제주도와 관련된 다양한 글을 올리고<br>
-            	댓글과 채팅으로 소통하는 공간입니다.</p>
-            <footer><a class="btn" href="../board/list.do">자유게시판 더보기</a></footer>
+          <article><a href="../course/course.do"><i class='fas fa-map-marked-alt' style='font-size:36px'></i></a>
+            <h4 class="heading font_title">코스짜기</h4>
+            <p>Cras tempor ultricies urna aliquam massa sapien posuere in iaculis adipiscing vulputate</p>
+            <footer><a class="btn" href="../course/course.do">More Details</a></footer>
           </article>
         </li>
       </ul>
@@ -56,18 +55,6 @@
     <!-- / main body -->
     <div class="clear"></div>
   </main>
-</div>
-<!-- ################################################################################################ -->
-<!-- ################################################################################################ -->
-<!-- ################################################################################################ -->
-<div class="wrapper row2">
-  <section id="references" class="hoc container clear"> 
-    <!-- ################################################################################################ -->
-    <div class="sectiontitle">
-      <h1 class="font_title">관광지/레저</h1>
-      <p>심심한 여행은 가라! 다양한 관광지/레저 상품으로 나만의 여행 만들어보세요.</p>
-    </div>
-  </section>
 </div>
 <!-- ################################################################################################ -->
 <!-- ################################################################################################ -->
