@@ -27,6 +27,7 @@ import java.io.Reader;
 import java.util.HashMap;
 import java.util.Map;
 
+import javax.inject.Inject;
 import javax.servlet.ServletRequest;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -34,6 +35,7 @@ import javax.servlet.http.HttpSession;
 
 import com.sist.dao.*;
 import com.sist.mapper.MemberMapper;
+import com.sist.service.EmailService;
 import com.sist.vo.*;
 
 @Controller
@@ -44,6 +46,8 @@ public class MemberController {
 	@Autowired
 	private BCryptPasswordEncoder encoder;
 	
+	@Inject
+    EmailService emailService;
 
 
 	   //회원가입
@@ -69,6 +73,15 @@ public class MemberController {
 		   String en=encoder.encode(vo.getPwd());// <암호화  과정>
 		   vo.setPwd(en);
 		   dao.memberJoinInsert(vo);
+		   
+		   EmailVO evo = new EmailVO();
+		   evo.setSenderName("제주IN");
+		   evo.setSenderMail("sistteam1@gmail.com");
+		   evo.setReceiveMail(vo.getEmail());
+		   evo.setSubject("제주IN 회원가입");
+		   evo.setMessage("안녕하세요 제주IN입니다. " + vo.getName() + "님의 회원가입을 축하드립니다!!");
+		   emailService.sendMail(evo);
+		   
 		   return "redirect:../main/main.do";
 	   }
 	   
