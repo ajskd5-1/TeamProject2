@@ -95,7 +95,7 @@ $(function(){
 		        <tr>
 		          <td width=10% class="text-center">${vo.no }</td>
 		          <td width=45%>
-		            <a href="#">${vo.subject }<span style="color: gray;"> (${vo.recount })</span></a>
+		            <a href="../board/detail.do?no=${vo.no }">${vo.subject }<span style="color: gray;"> (${vo.recount })</span></a>
 		          </td>
 		          <td width=15% class="text-center">${vo.name }</td>
 		          <td width=20% class="text-center">${vo.dbday }</td>

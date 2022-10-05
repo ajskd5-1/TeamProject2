@@ -163,8 +163,7 @@ public class BoardController {
     @GetMapping("board/update.do")
 	public String board_update(int no,Model model)
 	{	
-		BoardVO vo=service.boardUpdateData(no);
-		model.addAttribute("vo",vo);
+		model.addAttribute("no",no);
 		return "board/update";
 	}
     @PostMapping("board/update_ok.do")

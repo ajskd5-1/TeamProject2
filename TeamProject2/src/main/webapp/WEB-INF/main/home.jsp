@@ -17,33 +17,35 @@
     <!-- ################################################################################################ -->
     <section id="introblocks">
       <div class="sectiontitle">
-        <h6 class="heading">Quisque adipiscing</h6>
-        <p>Urna sed augue class aptent taciti sociosqu ad litora torquent</p>
       </div>
       <ul class="nospace group">
         <li class="one_quarter first">
-          <article><a href="#"><i class="fas fa-golf-ball"></i></a>
-            <h6 class="heading">Suspendisse</h6>
-            <p>Per conubia nostra per mauris aliquet massa nulla facilisi porta ligula non elementum</p>
-            <footer><a class="btn" href="#">More Details</a></footer>
+          <article><a href="../location/location_list.do"><img src="../images/demo/location.png" style="width: 70px; height: 70px;margin-bottom: 10px;"></a>
+            <h6 class="heading font_title">관광지</h6>
+            <p>관광 / 체험 / 액티비티 등<br> 
+            	제주도의 유명 관광지를 즐겨보세요.</p>
+            <footer><a class="btn" href="../location/location_list.do">관광지 더보기</a></footer>
           </article>
         </li>
         <li class="one_quarter">
-          <article><a href="#"><i class="fas fa-ribbon"></i></a>
-            <h6 class="heading">Inceptos</h6>
-            <p>Ultricies justo urna egestas metus ut ornare leo augue pharetra risus morbi tincidunt massa</p>
-            <footer><a class="btn" href="#">More Details</a></footer>
+          <article><a href="../food/food_list.do"><img src="../images/demo/food.png" style="width: 70px; height: 70px;margin-bottom: 10px;"></a>
+            <h6 class="heading font_title">맛집</h6>
+            <p>제주도의 모든 맛집, <br>
+            	카페를 즐겨보세요.</p>
+            <footer><a class="btn" href="../food/food_list.do">맛집 더보기</a></footer>
           </article>
         </li>
         <li class="one_quarter">
-          <article><a href="../course/course.do"><i class='fas fa-map-marked-alt' style='font-size:36px'></i></a>
+          <article><a href="../course/course.do"><img src="https://img.icons8.com/external-itim2101-lineal-color-itim2101/64/000000/external-map-travel-itim2101-lineal-color-itim2101.png" style="margin-bottom: 5px;"/></a>
             <h4 class="heading font_title">코스짜기</h4>
-            <p>Cras tempor ultricies urna aliquam massa sapien posuere in iaculis adipiscing vulputate</p>
-            <footer><a class="btn" href="../course/course.do">More Details</a></footer>
+            <p>볼 것도, 즐길 것도 너~무 많은 제주도!<br>
+            	시간이 한정되어 있다면, <br>
+            	알짜배기 여행지만 쏙쏙</p>
+            <footer><a class="btn" href="../course/course.do">코스짜기 더보기</a></footer>
           </article>
         </li>
         <li class="one_quarter">
-          <article><a href="#"><img src="https://img.icons8.com/color/76/000000/noticeboard.png" style="margin-bottom: 10px;"/></a>
+          <article><a href="../board/list.do"><img src="https://img.icons8.com/color/76/000000/noticeboard.png" style="margin-bottom: 10px;"/></a>
             <h6 class="heading font_title">자유게시판</h6>
             <p>제주도와 관련된 다양한 글을 올리고<br>
             	댓글과 채팅으로 소통하는 공간입니다.</p>
@@ -88,7 +90,7 @@
     <!-- ################################################################################################ -->
     <div class="sectiontitle">
       <h1 class="font_title">추천 맛집</h1>
-      <p>맛집 멘트</p>
+      <p>제주도의 모든 맛집, 카페를 즐겨보세요.</p>
     </div>
       <c:forEach var="vo" items="${flist }">
         <div class="col-md-4">

@@ -59,5 +59,23 @@ public class BoardRestController {
 		}catch(Exception ex) {}
 		return result;
 	}
-   
+	@GetMapping(value="board/update_vue.do",produces = "text/plain;charset=utf-8")
+	public String board_update_vue(int no)
+	{
+		String result="";
+		BoardVO vo=service.boardUpdateData(no);
+		JSONObject obj=new JSONObject();
+		obj.put("no", vo.getNo());
+		obj.put("subject", vo.getSubject());
+		obj.put("content", vo.getContent());
+		result=obj.toJSONString();
+		return result;
+	}
+	
+	@GetMapping(value = "board/update_vue_ok.do",produces = "text/plain;charset=utf-8")
+	public void board_update_vue_ok(BoardVO vo)
+	{
+		service.boardUpdate(vo);
+		
+	}
 }

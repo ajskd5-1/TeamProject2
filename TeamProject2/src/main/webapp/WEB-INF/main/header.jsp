@@ -15,7 +15,7 @@
     <header id="header" class="hoc clear"> 
       <!-- ################################################################################################ -->
       <div id="logo" class="fl_left">
-        <h1 class="font_title"><a href="../main/main.do">제주도</a></h1>
+        <h1 class="font_title"><a href="../main/main.do">제주IN</a></h1>
       </div>
       <!-- ################################################################################################ -->
       <nav id="mainav" class="fl_right">
@@ -46,8 +46,10 @@
   <div id="pageintro" class="hoc clear"> 
     <!-- ################################################################################################ -->
     <article>
-      <h3 class="heading font_title">Gravida ligula pulvinar</h3>
-      <p>Sem eu tincidunt magna nulla eu turpis mauris eget ante fusce pharetra sodales arcu sed rutrum ipsum a ipsum.</p>
+      <h3 class="heading font_title">제주IN</h3>
+      <p>제주IN은 제주도의 관광지, 맛집, 카페 정보를 제공하고<br>
+         	직접 여행 코스를 작성할 수 있습니다. 원하는 정보를 검색하세요! 
+      </p>
     </article>
     
     <br>

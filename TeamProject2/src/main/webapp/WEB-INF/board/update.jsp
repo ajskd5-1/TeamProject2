@@ -38,22 +38,6 @@ td{
 <script type="text/javascript">
 let fileIndex=0; // 파일 번호 전역변수 
 $(function(){
-	$('#writeBtn').on('click',function(){
-		let subject=$('#subject').val();
-		if(subject.trim()=="")
-		{
-			$('#subject').focus();
-			return;
-		}
-		let content=$('#content').val();
-		if(content.trim()=="")
-		{
-			$('#content').focus();
-			return;
-		}
-		$('#frm').submit();
-	})
-	
 	$('#addBtn').click(function(){
 		$('#user-table > tbody').append(
 			'<tr id="m'+(fileIndex)+'">'
@@ -82,12 +66,11 @@ $(function(){
     <br><br><br>
     <div class="row">
     <%-- enctype="multipart/form-data" 파일업로드 프로토콜 (생략이되면 파일업로드를 할 수 없다) --%>
-      <form method=post action="update_ok.do?no=${vo.no }" id="frm" enctype="multipart/form-data">
       <table class="table">
        <tr>
          <th width=20% class="text-right">제목</th>
          <td width=80%>
-           <input type=text name="subject" id="subject" size=70 class="input-sm" value="${vo.subject }"> 
+           <input type=text ref="subject" v-model="subject" size=70 class="input-sm"> 
          </td>
        </tr>
        <tr>
@@ -111,17 +94,64 @@ $(function(){
        <tr>
          <th width=20% class="text-right">내용</th>
          <td width=80%>
-           <textarea rows="10" cols="70" name="content" id="content">${vo.content }</textarea>
+           <textarea rows="10" cols="70" ref="content" v-model="content">{{content}}</textarea>
          </td>
        </tr>
       </table>
-      </form>
       <div class="text-center">
-          <input type=button value="수정하기" class="btn btn-sm btn-warning" id="writeBtn">
+          <input type=button value="수정하기" class="btn btn-sm btn-warning" v-on:click="boardUpdate()">
           <input type=button value="취소" class="btn btn-sm btn-primary"
             onclick="javascript:history.back()">
       </div>
     </div>
   </div>
+  <script>
+   new Vue({
+	   el:'.boardContainer',
+	   data:{
+		  subject:'',
+		  content:'',
+		  vo:{},
+		  no:${no},
+		  
+	   },
+	   mounted:function(){
+		   let _this=this;
+		   axios.get("http://localhost:8080/web/board/update_vue.do",{
+			   params:{
+				   no:_this.no
+			   }
+		   }).then(function(result){
+			   _this.vo=result.data;
+			   _this.subject=_this.vo.subject;
+			   _this.content=_this.vo.content;
+		   })
+	   },
+	   methods:{
+		   boardUpdate:function(){
+			   if(this.subject.trim()=="")
+			   {
+			   		this.$refs.subject.focus();
+			   		return;
+			   }
+			   if(this.content.trim()=="")
+			   {
+			   		this.$refs.content.focus();
+			   		return;
+			   }
+			   let _this=this;
+			   axios.get("http://localhost:8080/web/board/update_vue_ok.do",{
+				   params:{
+					   no:_this.no,
+					   subject:_this.subject,
+					   content:_this.content
+				   }
+			   }).then(function(){
+				   location.href="../board/detail.do?no="+_this.no;
+			   })
+		   }
+	   }
+   })
+  </script>
 </body>
 </html>

@@ -56,16 +56,13 @@
     <div id="ctdetails" class="clear">
       <ul class="nospace clear">
         <li class="one_quarter first">
-          <div class="block clear"><a href="#"><i class="fas fa-phone"></i></a> <span><strong>Give us a call:</strong> +00 (123) 456 7890</span></div>
+          <div class="block clear font_title">쌍용교육센터</span></div>
         </li>
         <li class="one_quarter">
-          <div class="block clear"><a href="#"><i class="fas fa-envelope"></i></a> <span><strong>Send us a mail:</strong> support@domain.com</span></div>
+          <div class="block clear font_title"><h4>이종환  김휘  박지원  서지현</h4></div>
         </li>
         <li class="one_quarter">
-          <div class="block clear"><a href="#"><i class="fas fa-clock"></i></a> <span><strong> Monday - Saturday:</strong> 08.00am - 18.00pm</span></div>
-        </li>
-        <li class="one_quarter">
-          <div class="block clear"><a href="#"><i class="fas fa-map-marker-alt"></i></a> <span><strong>Come visit us:</strong> Directions to <a href="#">our location</a></span></div>
+          <div class="block clear"><a href="#"><i class="fas fa-map-marker-alt"></i></a> <span><strong>깃허브 주소:</strong><a href="https://github.com/ajskd5-1/TeamProject2">https://github.com/ajskd5-1/TeamProject2</a></span></div>
         </li>
       </ul>
     </div>
