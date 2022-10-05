@@ -67,7 +67,8 @@ public interface MemberMapper {
 			   +"WHERE id=#{id}")
 	 public void memberDelete(String id);
 
-
+	@Select("SELECT name, email FROM jeju_member_1_2 where id=#{id}")
+	public MemberVO memberEmail(String id);
 
 	
 	

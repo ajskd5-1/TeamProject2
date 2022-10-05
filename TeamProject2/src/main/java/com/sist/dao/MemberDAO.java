@@ -81,4 +81,9 @@ public class MemberDAO {
 	 {
 		 mapper.memberDelete(id);
 	 }
+	 
+	 // 이메일 출력
+	 public MemberVO memberEmail(String id) {
+		 return mapper.memberEmail(id);
+	 }
 }
