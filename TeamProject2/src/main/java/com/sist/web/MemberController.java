@@ -264,7 +264,7 @@ public class MemberController {
 		   evo.setSenderName("제주IN");
 		   evo.setSenderMail("sistteam1@gmail.com");
 		   evo.setReceiveMail(vo.getEmail());
-		   evo.setSubject("제주IN 회원가입");
+		   evo.setSubject("제주IN 회원탈퇴");
 		   evo.setMessage("안녕하세요 제주IN입니다." + vo.getName() + "님의 탈퇴가 완료되었습니다!!");
 		   emailService.sendMail(evo);
 	       
