@@ -103,10 +103,10 @@ $(function(){
 			    <%-- 로그인--%><input type=submit id=loginBtn class="btn btn-danger" value="로그인" @click="login()">
 			    <%-- 회원가입--%><a href="../member/join.do"><input type=submit id=joinBtn class="btn btn-primary" value="회원가입"></a>
 			    <%-- 취소 --%><a href="../main/main.do"><button type=button class="btn btn-success">취소</button></a>
-			    <!--  
+			
 			    <hr style="height:0px; background-color:#353535;">
-			    <%-- 아이디 찾기--%><a href="../member/idfind.do"><input type=submit id=idsearch class="btn btn-info" value="아이디 찾기"></a>
-			    <%-- 비밀번호 찾기--%><input type=submit id=idsearch class="btn btn-warning" value="비밀번호찾기">-->
+			    <%-- 아이디 찾기--%><a href="../member/idfind.do"><input type=submit id=idsearch class="btn btn-warning" value="아이디 찾기"></a>
+			    <!--  <%-- 비밀번호 찾기--%><input type=submit id=idsearch class="btn btn-warning" value="비밀번호찾기">-->
 			    <br>
 			    <div style="margin-top:10px;"><span id="jPrint" ref="jPrint"></span></div>
 			  </div>

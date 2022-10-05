@@ -3,6 +3,7 @@ package com.sist.web;
 
 
 
+import org.apache.commons.collections.map.HashedMap;
 import org.apache.ibatis.binding.MapperProxy;
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
@@ -27,7 +28,6 @@ import java.io.Reader;
 import java.util.HashMap;
 import java.util.Map;
 
-import javax.inject.Inject;
 import javax.servlet.ServletRequest;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -35,7 +35,6 @@ import javax.servlet.http.HttpSession;
 
 import com.sist.dao.*;
 import com.sist.mapper.MemberMapper;
-import com.sist.service.EmailService;
 import com.sist.vo.*;
 
 @Controller
@@ -46,8 +45,6 @@ public class MemberController {
 	@Autowired
 	private BCryptPasswordEncoder encoder;
 	
-	@Inject
-    EmailService emailService;
 
 
 	   //회원가입
@@ -73,15 +70,6 @@ public class MemberController {
 		   String en=encoder.encode(vo.getPwd());// <암호화  과정>
 		   vo.setPwd(en);
 		   dao.memberJoinInsert(vo);
-		   
-		   EmailVO evo = new EmailVO();
-		   evo.setSenderName("제주IN");
-		   evo.setSenderMail("sistteam1@gmail.com");
-		   evo.setReceiveMail(vo.getEmail());
-		   evo.setSubject("제주IN 회원가입");
-		   evo.setMessage("안녕하세요 제주IN입니다. " + vo.getName() + "님의 회원가입을 축하드립니다!!");
-		   emailService.sendMail(evo);
-		   
 		   return "redirect:../main/main.do";
 	   }
 	   
@@ -155,8 +143,32 @@ public class MemberController {
 	   }
 	   
 	   //아이디 찾기
-	  
-	 
+	   @GetMapping("member/idfind.do")
+	   public String idfind()
+	   {
+		   return "member/idfind";
+	   }
+	   @GetMapping("member/idfind_ok.do")
+	   @ResponseBody
+	   public String idfind_ok(String name,String tel,HttpSession session)
+	   {
+		   
+		   String result="";
+		   Map map = new HashedMap();
+		   map.put("name", name);
+		   map.put("tel", tel);
+		   String id = dao.idfind(map);
+		   System.out.println("id찾기");
+		   System.out.println(id);
+		   if(id != null) {
+			   result = id;
+			   
+		   } else {
+			   result = "NOID";
+		   }
+		   
+		   return result;
+	   }
 	  
 	  //회원정보 수정
 	   @GetMapping("member/join_before.do")

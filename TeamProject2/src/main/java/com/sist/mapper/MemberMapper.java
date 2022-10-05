@@ -32,10 +32,14 @@ public interface MemberMapper {
 	// 전화번호 중복 찾기
 	@Select("SELECT COUNT(*) FROM jeju_member_1_2 WHERE tel=#{tel}")
 	public int memberTelCheck(String tel);
+	//회원가입 삽입
 	@Insert("INSERT INTO jeju_member_1_2 VALUES("
 			  +"#{id},#{pwd},#{name},#{sex},#{birthday},#{email},"
 			  +"#{tel},'',null,'ROLE_USER')")
 	public void memberJoinInsert(MemberVO vo);
+	// 이름 중복 찾기
+	@Select("SELECT COUNT(*) FROM jeju_member_1_2 WHERE name=#{name}")
+	public int memberNameCheck(String name);
 	// 로그인    ==> 복호화 ====> 자동로그인
 	@Select("SELECT pwd,name,role FROM jeju_member_1_2 "
 			  +"WHERE id=#{id}")
@@ -55,6 +59,8 @@ public interface MemberMapper {
 	 public void memberUpdate(MemberVO vo);
 	
 	//아이디 찾기
+	@Select("SELECT id FROM jeju_member_1_2 WHERE name=#{name} and tel=#{tel}")
+	public String idfind(Map map);
 	
 	//회원정보 탈퇴
 	@Delete("DELETE jeju_member_1_2 "

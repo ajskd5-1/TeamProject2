@@ -5,7 +5,7 @@ import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Select;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
-
+import java.util.*;
 import com.sist.vo.*;
 
 @Repository
@@ -59,7 +59,15 @@ public class MemberDAO {
 	
   	
   	//아이디 찾기
-  	
+	public String idfind(Map map)
+	{
+		return mapper.idfind(map);
+	}
+	public int memberNameCheck(String name)
+	{
+		return mapper.memberNameCheck(name);
+	}
+	
   	//탈퇴하기
  	/*
  	 * @Select("SELECT pwd FROM jeju_member_1_2 "
