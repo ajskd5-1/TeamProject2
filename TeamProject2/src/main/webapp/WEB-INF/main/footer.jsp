@@ -26,8 +26,8 @@
         <c:forEach var="lvo" items="${locationList }">
         <div class="col-md-4">
 	      <div class="thumbnail">
-	        <a href="#">
-	          <img src="${lvo.poster }" alt="Lights" style="width:100%">
+	        <a href="../location/detail_before.do?no=${lvo.no }">
+	          <img src="${lvo.poster }" alt="Lights" style="width:100%; height: 75.99px;">
 	          <div class="caption">
 	            <p>${lvo.title }</p>
 	          </div>
