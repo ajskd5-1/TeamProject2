@@ -86,7 +86,7 @@ $(function(){
                  <td class="text-right">
                    <c:if test="${sessionScope.id==rvo.id }">
                      <span class="btn btn-xs btn-info up" data-no="${rvo.no }">수정</span>
-                     <a href="../reply/delete.do?no=${rvo.no }&type=1&pno=${no }" class="btn btn-xs btn-success">삭제</a>
+                     <a href="../reply/delete.do?no=${rvo.no }&pno=${vo.no }" class="btn btn-xs btn-success">삭제</a>
                    </c:if>
                  </td>
                </tr>
