@@ -175,7 +175,6 @@
     				}
     			}).then(function(result){
     				alert("코스가 저장되었습니다!!");
-    				//location.href="../course/course.do";
     			})
     		}
     	}

@@ -58,7 +58,7 @@
 		<option value="location">관광지</option>
 	    <option value="food">맛집</option>
 	  </select>
-	  <input type="text" class="input-md" style="color:black; height:30px;" name="ss">
+	  <input type="text" class="input-md" style="color:black; height:30px;" name="ss" size="40">
 	  <input type="submit" class="btn btn-md btn-info" value="검색">
     </form>
     <!-- ################################################################################################ -->
