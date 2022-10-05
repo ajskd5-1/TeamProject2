@@ -34,7 +34,7 @@ public class MemberDAO {
 	//전화번호체크
 	public int memberTelCheck(String tel)
 	{
-		return mapper.memberEmailCheck(tel);
+		return mapper.memberTelCheck(tel);
 	}
 	//로그인
 	public MemberVO memberJoinInfoData(String id)

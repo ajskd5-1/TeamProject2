@@ -84,12 +84,11 @@ $(function(){
          <div class="col-md-6">
 			<%-- 아이디 --%>
 			  <h4 class="font_title">아이디</h4>
-			  <input class="form-control text-center" type="text" size=35 placeholder="아이디를 입력하세요" ref="id" v-model="id"><div style="margin-top:10px;"><span id="iPrint"></span></div><br>
+			  <input class="form-control text-center" type="text" size=35 placeholder="아이디를 입력하세요" ref="id" v-model="id"><div style="margin-top:10px;"></div><br>
 			<%-- 비밀번호 --%>
 			  <h4 class="font_title">비밀번호</h4>
 			  <input class="form-control text-center" type="password" size=35 placeholder="비밀번호를 입력하세요" ref="pwd" v-model="pwd"><br>
 			<%-- 아이디 저장 --%>
-			
 			<div class="alert alert-warning">
 			<h4 class="font_title">아이디저장</h4>
   				<input type=checkbox id="ck" style="margin-left:90px; margin-top:-27px">
@@ -104,9 +103,10 @@ $(function(){
 			    <%-- 로그인--%><input type=submit id=loginBtn class="btn btn-danger" value="로그인" @click="login()">
 			    <%-- 회원가입--%><a href="../member/join.do"><input type=submit id=joinBtn class="btn btn-primary" value="회원가입"></a>
 			    <%-- 취소 --%><a href="../main/main.do"><button type=button class="btn btn-success">취소</button></a>
+			    <!--  
 			    <hr style="height:0px; background-color:#353535;">
 			    <%-- 아이디 찾기--%><a href="../member/idfind.do"><input type=submit id=idsearch class="btn btn-info" value="아이디 찾기"></a>
-			    <%-- 비밀번호 찾기--%><input type=submit id=idsearch class="btn btn-warning" value="비밀번호찾기">
+			    <%-- 비밀번호 찾기--%><input type=submit id=idsearch class="btn btn-warning" value="비밀번호찾기">-->
 			    <br>
 			    <div style="margin-top:10px;"><span id="jPrint" ref="jPrint"></span></div>
 			  </div>
@@ -118,7 +118,7 @@ $(function(){
    new Vue({
  	  el:'.container',  //el (element = 태그) 
  	  data:{
- 		  id:'',
+ 		  id:'${id}',
  		  pwd:'',
  		  res:''
  	  },
@@ -126,6 +126,8 @@ $(function(){
  	  methods:{
  		  // login(){}
  		  login:function(){
+ 			  let ck = $('#ck').is(":checked");
+ 			  //alert(ck);
  			  if(this.id.trim()==="")
  			  {
  				  this.$refs.id.focus();
@@ -145,7 +147,8 @@ $(function(){
  			  axios.get("http://localhost:8080/web/member/login_vue.do",{
  				  params:{
  					  id:_this.id,
- 					  pwd:_this.pwd
+ 					  pwd:_this.pwd,
+ 					  ck : ck
  				  }
  			  }).then(function(result){ // callback (시스템에 의해 자동 호출 success:function(result))
  				  _this.res=result.data;

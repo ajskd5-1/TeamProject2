@@ -37,6 +37,7 @@ public class MemberRestController {
 	    public String member_login_ok(String id,String pwd,boolean ck,HttpSession session,HttpServletResponse response)
 	    {
 	 	   String result="";
+	 	   System.out.println(ck);
 	 	   int count=mDao.memberIdCheck(id);
 	 	   if(count==0)
 	 	   {

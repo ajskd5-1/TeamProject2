@@ -60,6 +60,7 @@ public class AutoLoginInterceptor extends HandlerInterceptorAdapter{
 				if(key.equals("id"))
 				{
 					String id=cookies[i].getValue();
+					System.out.println(id);
 					request.setAttribute("id", id);
 					break;
 				}

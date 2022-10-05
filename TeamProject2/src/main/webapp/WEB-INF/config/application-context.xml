@@ -19,6 +19,11 @@
 			<mvc:mapping path="/**/*"/>
 			<bean id="commonsInterceptor" class="com.sist.interceptor.CommonsIntercepter" />
 		</mvc:interceptor>
+		<mvc:interceptor>
+      <!-- main에서만 id체크하게 -->
+         <mvc:mapping path="/member/login.do"/> <!-- Controller 전체 메소드 => 경로가 들어오면 bean태그 실행-->
+         <bean id="autoLoginInterceptor" class="com.sist.interceptor.AutoLoginInterceptor" />
+      </mvc:interceptor>
 	</mvc:interceptors>
 	
 	<bean id="bcryptPasswordEncoder"

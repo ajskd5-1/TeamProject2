@@ -11,7 +11,7 @@
 </head>
 <body>
   <!-- ################################################################################################ -->
-  <h6>Lorem ipsum dolor</h6>
+  <h6></h6>
   <nav class="sdb_holder">
     <ul>
       <li>회원 관리
@@ -20,6 +20,7 @@
           <li><a href="../member/memberDelete.do">회원 탈퇴</a></li>
         </ul>
       </li>
+      <%--
       <li><a href="#">Navigation - Level 1</a>
         <ul>
           <li><a href="#">Navigation - Level 2</a></li>
@@ -32,6 +33,7 @@
         </ul>
       </li>
       <li><a href="#">Navigation - Level 1</a></li>
+      --%>
     </ul>
   </nav>
   <h3><a href="../mypage/my_course.do" class="font_title">나만의 코스</a></h3>
