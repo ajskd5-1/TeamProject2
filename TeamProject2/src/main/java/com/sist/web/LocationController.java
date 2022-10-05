@@ -10,17 +10,23 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jms.listener.adapter.ReplyFailureException;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
+import com.sist.dao.DetailReplyDAO;
 import com.sist.dao.LocationDAO;
+import com.sist.vo.DetailReplyVO;
 import com.sist.vo.LocationVO;
 
 @Controller
 public class LocationController {
 	@Autowired
 	private LocationDAO dao;
+	
+	@Autowired
+	private DetailReplyDAO rdao;
 	
 	@GetMapping("location/location_list.do")
 	public String location_list(String page,Model model,HttpServletRequest request) // 쿠키 읽기 목적 request
@@ -80,16 +86,23 @@ public class LocationController {
 		cookie.setPath("/");
 		cookie.setMaxAge(60*60*24);
 		response.addCookie(cookie);
-		return "redirect:location_detail.do?no="+no;
+		return "redirect:location_detail.do?no="+no+"&type=1";
 	}
    //상세보기 요청 
    @GetMapping("location/location_detail.do")
-   public String location_detail(int no,Model model)
+   public String location_detail(int no,String type,Model model)
    {
+	   if(type==null)
+		   type="1";
 	   LocationVO vo=dao.LocationDetailData(no);
-	   // vo.setPrice(Integer.parseInt(vo.getPrice().replaceAll("[^0-9]", "").trim()));
-	  // 숫자를 제외한 나머지는 공백으로 바꿔라 20,000원 => 20000
 	   model.addAttribute("vo", vo);
+	   
+	   DetailReplyVO rvo=new DetailReplyVO();
+	   rvo.setPno(no);
+	   rvo.setType(Integer.parseInt(type));
+	   List<DetailReplyVO> list=rdao.breplyListData(rvo);
+	   model.addAttribute("list",list);
+	   model.addAttribute("no", no);
 	   return "location/location_detail";
    }
    
