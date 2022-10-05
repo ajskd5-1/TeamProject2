@@ -8,7 +8,7 @@ import javax.websocket.server.ServerEndpoint;
 import java.util.*;
 @ServerEndpoint("/site/chat/chat-ws")
 public class ChatServer {
-    private Set<Session> users=Collections.synchronizedSet(new HashSet<Session>());
+    private static Set<Session> users=Collections.synchronizedSet(new HashSet<Session>());
     //  접속자의 중복을 허용하지 않는다 ===========> 저장시에는 동기화 
     //  NodeJS ==> VUE,React
 	@OnOpen

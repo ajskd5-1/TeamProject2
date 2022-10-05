@@ -57,7 +57,7 @@ function onOpen(event) // 연결되었을때 처리
 {
 	let name=$('#name').val();
 	var user = "===== ' " + name +" '";
-	var str = user + "님이 입장하셨습니다.=====";
+	var str = user + "님 서버와 연결되었습니다.=====";
 	
 	$("#recvMsg").append(str+"<br>");
 }
@@ -65,7 +65,7 @@ function onClose(event) // 퇴장시 처리
 {
 	let name=$('#name').val();
 	var user = "===== ' " + name +" '";
-	var str = user + "님이 퇴장하셨습니다.=====";
+	var str = user + "님 서버연결이 종료되었습니다.=====";
 	
 	$("#recvMsg").append(str+"<br>");
 }
